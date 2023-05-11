@@ -28,7 +28,7 @@ export const LandingPage = () => {
       >
         <img
           ref={backgroundRef}
-          src='assets/icons/landing-bg.png'
+          src='/assets/icons/landing-bg.png'
           alt='Landing background'
           className='bg-cover w-screen h-screen  hidden '
         />
@@ -45,7 +45,7 @@ export const LandingPage = () => {
       >
         <img
           ref={logoRef}
-          src='assets//icons/landing-logo.png'
+          src='/assets/icons/landing-logo.png'
           alt='Landing background'
           className=' absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 '
         />
