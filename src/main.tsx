@@ -2,12 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import { LandingPage } from '@/pages/LandingPage';
-import { CovidPolitics } from '@/pages/CovidPolitics';
-import { CovidState } from '@/pages/CovidState';
-import AreYouVaccinated from '@/pages/AreYouVaccinated/AreYouVaccinated';
-import { PersonalInfo } from '@/pages/PersonalInfo';
-import { ThankYou } from '@/pages/ThankYou';
+import {
+  AreYouVaccinated,
+  CovidPolitics,
+  CovidState,
+  LandingPage,
+  PersonalInfo,
+  ThankYou,
+} from '@/pages';
 
 const routes = createBrowserRouter([
   {
