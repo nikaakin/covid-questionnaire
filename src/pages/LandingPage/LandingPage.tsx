@@ -1,18 +1,19 @@
-import React, { useEffect } from 'react';
+import { useLandingPage } from '@/pages';
 import { Link } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 
 export const LandingPage = () => {
-  const backgroundRef = React.useRef(null);
-  const logoRef = React.useRef(null);
-  const textRef = React.useRef(null);
-  const [showBg, setShowBg] = React.useState(false);
-  const [showLogo, setShowLogo] = React.useState(false);
-  const [text, setText] = React.useState(false);
-
-  useEffect(() => {
-    setShowBg(true);
-  }, []);
+  const {
+    backgroundRef,
+    logoRef,
+    setShowBg,
+    setShowLogo,
+    setText,
+    showBg,
+    showLogo,
+    text,
+    textRef,
+  } = useLandingPage();
 
   return (
     <div className='w-screen h-screen bg-gray-250'>
@@ -65,7 +66,7 @@ export const LandingPage = () => {
           to='/personal-info'
           className='block font-bold text-3xl lowercase  
             text-neutral-850  text-center absolute top-1/2 left-1/2 -translate-x-1/2
-            text-shadow overflow-hidden w-80
+            text-shadow overflow-hidden px-2 transition-all duration-100 ease-in-out
             '
         >
           <span className='block'>კითხვარის</span>
