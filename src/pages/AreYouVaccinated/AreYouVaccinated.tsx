@@ -1,7 +1,5 @@
 import React from 'react';
 
-const AreYouVaccinated = () => {
+export const AreYouVaccinated = () => {
   return <div>AreYouVaccinated</div>;
 };
-
-export default AreYouVaccinated;
