@@ -14,7 +14,9 @@ export const Layout: React.FC = () => {
         />
         <span>{page + 1}/4</span>
       </header>
-      <section className='flex-1'> {outlet} </section>
+      <section className='flex-1 flex flex-row  justify-between gap-24'>
+        {outlet}
+      </section>
       <footer className='w-36 flex justify-between items-center  self-center'>
         {/* //TODO some styling if form is not yet validated */}
         {page > 0 && (
