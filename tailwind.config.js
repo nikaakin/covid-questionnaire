@@ -31,6 +31,9 @@ export default {
           550: '#DD3939',
         },
       },
+      fontFamily: {
+        'anonymous-pro': 'Anonymous Pro, monospace',
+      },
     },
   },
   plugins: [],

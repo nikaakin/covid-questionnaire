@@ -10,6 +10,8 @@ import {
   PersonalInfo,
   ThankYou,
 } from '@/pages';
+import { Context } from '@/context';
+import { Layout } from '@/components';
 
 const routes = createBrowserRouter([
   {
@@ -17,29 +19,37 @@ const routes = createBrowserRouter([
     element: <LandingPage />,
   },
   {
-    path: '/covid-politics',
-    element: <CovidPolitics />,
-  },
-  {
-    path: '/covid-state',
-    element: <CovidState />,
-  },
-  {
-    path: '/are-you-vaccinated',
-    element: <AreYouVaccinated />,
-  },
-  {
-    path: '/personal-info',
-    element: <PersonalInfo />,
-  },
-  {
-    path: '/thank-you',
-    element: <ThankYou />,
+    path: '/',
+    element: <Layout />,
+    children: [
+      {
+        path: '/personal-info',
+        element: <PersonalInfo />,
+      },
+      {
+        path: '/covid-state',
+        element: <CovidState />,
+      },
+      {
+        path: '/covid-politics',
+        element: <CovidPolitics />,
+      },
+      {
+        path: '/are-you-vaccinated',
+        element: <AreYouVaccinated />,
+      },
+      {
+        path: '/thank-you',
+        element: <ThankYou />,
+      },
+    ],
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <RouterProvider router={routes} />
+    <Context>
+      <RouterProvider router={routes} />
+    </Context>
   </React.StrictMode>
 );
