@@ -18,7 +18,6 @@ export const Layout: React.FC = () => {
         {outlet}
       </section>
       <footer className='w-36 flex justify-between items-center  self-center'>
-        {/* //TODO some styling if form is not yet validated */}
         {page > 0 && (
           <button onClick={previousPage}>
             <img

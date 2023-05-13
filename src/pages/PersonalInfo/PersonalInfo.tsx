@@ -1,11 +1,11 @@
 import { PersonalInfoAnimation, PersonalInfoForm } from '@/pages';
-import React from 'react';
+import { Fragment } from 'react';
 
 export const PersonalInfo = () => {
   return (
-    <React.Fragment>
+    <Fragment>
       <PersonalInfoForm />
       <PersonalInfoAnimation />
-    </React.Fragment>
+    </Fragment>
   );
 };
