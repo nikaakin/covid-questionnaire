@@ -1,6 +1,7 @@
 import { Arrow } from '@/assets/Arrow';
 import { useLayout } from './useLayout';
 import { Link, Outlet } from 'react-router-dom';
+
 import { FormProvider, useForm } from 'react-hook-form';
 
 export const Layout: React.FC = () => {
@@ -44,5 +45,6 @@ export const Layout: React.FC = () => {
         </main>
       </form>
     </FormProvider>
+
   );
 };

@@ -1,9 +1,11 @@
 import { pageContext } from '@/context';
 import { getLocaleStorageValues } from '@/helpers';
 import { routes } from '@/routes';
+
 import { useContext, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useLocation, useNavigate } from 'react-router-dom';
+
 
 export const useLayout = () => {
   const { page, setCurrentPage, show, setShowValue, setForwardValue } =
