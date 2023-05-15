@@ -1,5 +1,11 @@
-import React from 'react';
+import { AreYouVaccinateAnimation, AreYouVaccinateForm } from '@/pages';
+import { Fragment } from 'react';
 
 export const AreYouVaccinated = () => {
-  return <div>AreYouVaccinated</div>;
+  return (
+    <Fragment>
+      <AreYouVaccinateForm />
+      <AreYouVaccinateAnimation />
+    </Fragment>
+  );
 };

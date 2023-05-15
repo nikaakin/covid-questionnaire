@@ -10,10 +10,10 @@ import {
   PersonalInfo,
   ThankYou,
 } from '@/pages';
-import { Context } from '@/context';
+import { PageContext } from '@/context';
 import { Layout } from '@/components';
 
-const routes = createBrowserRouter([
+const router = createBrowserRouter([
   {
     path: '/',
     element: <LandingPage />,
@@ -38,18 +38,18 @@ const routes = createBrowserRouter([
         path: '/are-you-vaccinated',
         element: <AreYouVaccinated />,
       },
-      {
-        path: '/thank-you',
-        element: <ThankYou />,
-      },
     ],
+  },
+  {
+    path: '/thank-you',
+    element: <ThankYou />,
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <Context>
-      <RouterProvider router={routes} />
-    </Context>
+    <PageContext>
+      <RouterProvider router={router} />
+    </PageContext>
   </React.StrictMode>
 );

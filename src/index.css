@@ -40,3 +40,85 @@
 .text-shadow:hover {
   text-shadow: 2px 1px 0px #eaeaea, 3px 1px 0px rgba(0, 0, 0, 0.75);
 }
+
+.personal-info-enter {
+  transform: translate(-70%, 0) scale(0.7);
+  transform-origin: left bottom;
+  opacity: 0;
+  transition: all 300ms ease-in-out;
+}
+.personal-info-enter-active {
+  opacity: 1;
+  transform: translate(-50%, 0) scale(1);
+  transform-origin: left bottom;
+  transition: all 300ms ease-in-out;
+}
+
+.personal-info-exit-active {
+  opacity: 0.3;
+  transform-origin: left bottom;
+  transform: translate(-70%, 80%) scale(1.2);
+  transition: all 200ms ease-in-out;
+}
+.covid-state-enter {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  transform: translate(20%, -10%) scale(1.2);
+  transform-origin: right top;
+  background-color: #f1542437;
+  opacity: 0;
+  transition: all 300ms ease-in-out;
+}
+.covid-state-enter-active {
+  opacity: 1;
+  transform: translate(0, 0) scale(1);
+  background-color: transparent;
+  clip-path: none;
+  transition: all 300ms ease-in-out;
+}
+
+.covid-state-exit-active {
+  opacity: 0.3;
+  background: #f1542437;
+  transform: translate(40%, -70%) scale(0.3);
+  transition: all 200ms ease-in-out;
+}
+
+.covid-politics-enter {
+  transform: translate(-15%, -5%) scale(0);
+  transform-origin: left bottom;
+  opacity: 0;
+  transition: all 300ms ease-in-out;
+}
+.covid-politics-enter-active {
+  opacity: 1;
+  transform: translate(0, 0) scale(1);
+  transition: all 300ms ease-in-out;
+}
+
+.covid-politics-exit-active {
+  opacity: 0.3;
+  transform: translate(10%, 10%) scale(0.3);
+  transition: all 200ms ease-in-out;
+}
+
+.are-you-vaccinated-enter {
+  transform: translate(-60%, 30%) scale(0);
+  transform-origin: top left;
+  opacity: 0.3;
+  transition: all 300ms ease-in-out;
+}
+.are-you-vaccinated-enter-active {
+  opacity: 1;
+  transform-origin: top left;
+
+  transform: translate(-50%, 0) scale(1);
+  transition: all 300ms ease-in-out;
+}
+
+.are-you-vaccinated-exit-active {
+  transform-origin: top left;
+
+  opacity: 0;
+  transform: translate(-60%, 30%) scale(0);
+  transition: all 200ms ease-in-out;
+}

@@ -1,19 +1,19 @@
 import { useTransitionClass } from '@/hooks/useTransitionClass';
 
-export const PersonalInfoAnimation = () => {
+export const CovidStateAnimation = () => {
   const className = useTransitionClass();
   return (
     <div className='basis-[60%] relative '>
       <img
-        src='/assets/icons/scan.png'
+        src='/assets/icons/vaccinate.png'
         alt='scan'
         className='w-full h-auto z-10 relative '
       />
 
       <img
-        src='/assets/icons/rect.png'
+        src='/assets/icons/circle.png'
         alt='Landing scan'
-        className={`block bg-cover  absolute top-40 left-1/2 z-0  max-h-12 -translate-x-1/2 ${className}`}
+        className={`block bg-cover  absolute top-44 left-16 z-0  w-36 h-36 ${className}`}
       />
     </div>
   );

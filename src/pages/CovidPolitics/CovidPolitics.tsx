@@ -1,5 +1,11 @@
-import React from 'react';
+import { CovidPoliticsAnimation, CovidPoliticsForm } from '@/pages';
+import { Fragment } from 'react';
 
 export const CovidPolitics = () => {
-  return <div>CovidPolitics</div>;
+  return (
+    <Fragment>
+      <CovidPoliticsForm />
+      <CovidPoliticsAnimation />
+    </Fragment>
+  );
 };
