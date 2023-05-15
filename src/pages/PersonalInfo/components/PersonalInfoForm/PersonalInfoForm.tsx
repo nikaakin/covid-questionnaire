@@ -4,7 +4,7 @@ import { usePersonalInfoForm } from '@/pages/PersonalInfo/components/PersonalInf
 export const PersonalInfoForm = () => {
   const { errors, register, setData, data } = usePersonalInfoForm();
   return (
-    <div className='text-neutral-850 pt-10'>
+    <div className='text-neutral-850 pt-10 flex-1'>
       <Input
         register={register('first_name', {
           required: 'სახელის ველის შევსება სავალდებულოა',
