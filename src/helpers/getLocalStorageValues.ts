@@ -1,8 +1,17 @@
-export const getLocaleStorageValues = () => {
-  const formValues = JSON.parse(localStorage.getItem('form') || '{}') as {};
-  const page = +(localStorage.getItem('page') || '0');
+import {
+  AreYouVaccinatedType,
+  CovidPoliticsType,
+  CovidStateType,
+  PersonalInfoType,
+} from '@/helpers/type';
+
+export const getLocaleStorageValues = (key: string) => {
+  const formValues = JSON.parse(localStorage.getItem(key) || '{}') as
+    | PersonalInfoType
+    | CovidStateType
+    | CovidPoliticsType
+    | AreYouVaccinatedType;
   return {
     ...formValues,
-    page,
   };
 };
