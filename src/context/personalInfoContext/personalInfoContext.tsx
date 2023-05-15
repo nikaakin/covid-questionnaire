@@ -1,3 +1,4 @@
+import { PersonalInfoDataType } from './type';
 import { getLocaleStorageValues } from '@/helpers';
 import { PersonalInfoType } from '@/helpers/type';
 import { FC, PropsWithChildren, createContext, useState } from 'react';
@@ -7,12 +8,12 @@ const initialState = getLocaleStorageValues(
 ) as PersonalInfoType;
 
 export const personalInfoContext = createContext({
-  first_name: '',
-  last_name: '',
-  email: '',
-  setFirstName: (_: string) => {},
-  setLastName: (_: string) => {},
-  setEmail: (_: string) => {},
+  setData: (_: { first_name: string; last_name: string; email: string }) => {},
+  data: {
+    first_name: '',
+    last_name: '',
+    email: '',
+  },
 });
 
 export const PersonalInfoContextProvider: FC<PropsWithChildren> = ({
@@ -24,34 +25,16 @@ export const PersonalInfoContextProvider: FC<PropsWithChildren> = ({
     email: initialState.email,
   });
 
-  const setFirstName = (firstName: string) => {
-    setdata((data) => ({ ...data, first_name: firstName }));
+  const setData = ({ first_name, last_name, email }: PersonalInfoDataType) => {
+    setdata({ first_name, last_name, email });
     localStorage.setItem(
       'personal-info',
-      JSON.stringify({ ...data, first_name: firstName })
-    );
-  };
-
-  const setLastName = (lastName: string) => {
-    setdata((data) => ({ ...data, last_name: lastName }));
-    localStorage.setItem(
-      'personal-info',
-      JSON.stringify({ ...data, last_name: lastName })
-    );
-  };
-
-  const setEmail = (email: string) => {
-    setdata((data) => ({ ...data, email: email }));
-    localStorage.setItem(
-      'personal-info',
-      JSON.stringify({ ...data, email: email })
+      JSON.stringify({ first_name, last_name, email })
     );
   };
 
   return (
-    <personalInfoContext.Provider
-      value={{ ...data, setEmail, setFirstName, setLastName }}
-    >
+    <personalInfoContext.Provider value={{ setData, data }}>
       {children}
     </personalInfoContext.Provider>
   );
