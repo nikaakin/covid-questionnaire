@@ -12,6 +12,7 @@ import {
 } from '@/pages';
 import { PageContext } from '@/context';
 import { Layout } from '@/components';
+import { PersonalInfoContextProvider } from '@/context/personalInfoContext';
 
 const router = createBrowserRouter([
   {
@@ -49,7 +50,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <PageContext>
-      <RouterProvider router={router} />
+      <PersonalInfoContextProvider>
+        <RouterProvider router={router} />
+      </PersonalInfoContextProvider>
     </PageContext>
   </React.StrictMode>
 );

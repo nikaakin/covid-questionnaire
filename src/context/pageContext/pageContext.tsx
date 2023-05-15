@@ -1,11 +1,9 @@
 import { PropTypes } from './type';
-import { getLocaleStorageValues } from '@/helpers';
 import { FC, createContext, useEffect, useState } from 'react';
 
-const initialState = getLocaleStorageValues();
 
 export const pageContext = createContext({
-  ...initialState,
+  page: 0,
   forwardAnimation: true,
   show: false,
   setCurrentPage: (_: number) => {},
@@ -14,7 +12,7 @@ export const pageContext = createContext({
 });
 
 export const PageContext: FC<PropTypes> = ({ children }) => {
-  const [page, setPage] = useState(initialState.page);
+  const [page, setPage] = useState(+(localStorage.getItem('page') || 0));
   const [show, setShow] = useState(false);
   const [forwardAnimation, setForwardAnimation] = useState(true);
 

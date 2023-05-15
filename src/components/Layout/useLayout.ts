@@ -1,14 +1,41 @@
 import { pageContext } from '@/context';
+import { getLocaleStorageValues } from '@/helpers';
 import { routes } from '@/routes';
-import { useContext } from 'react';
-import { useNavigate, useOutlet } from 'react-router-dom';
+
+import { useContext, useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import { useLocation, useNavigate } from 'react-router-dom';
+
 
 export const useLayout = () => {
   const { page, setCurrentPage, show, setShowValue, setForwardValue } =
     useContext(pageContext);
   const navigate = useNavigate();
-  const outlet = useOutlet();
+  const location = useLocation();
   const name = routes[page];
+  const initialValues = getLocaleStorageValues(name);
+
+  const form = useForm({
+    mode: 'onChange',
+    shouldUnregister: true,
+    defaultValues: {
+      ...initialValues,
+    },
+  });
+  const {
+    handleSubmit,
+    formState: { isValid },
+  } = form;
+
+  const onSubmit = (data: any) => {
+    localStorage.setItem(name, JSON.stringify(data));
+  };
+
+  useEffect(() => {
+    if (routes.indexOf(location.pathname.slice(1)) > page) {
+      navigate('/');
+    }
+  }, [location.pathname, navigate, page]);
 
   const previousPage = () => {
     setShowValue(false);
@@ -32,10 +59,12 @@ export const useLayout = () => {
     page,
     previousPage,
     nextPage,
-    navigate,
-    outlet,
-    name,
     show,
     setShowValue,
+    initialValues,
+    onSubmit,
+    handleSubmit,
+    isValid,
+    form,
   };
 };

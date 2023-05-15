@@ -10,7 +10,7 @@ export const Arrow = ({ color = '#232323', className = '' }) => (
       xmlns='http://www.w3.org/2000/svg'
       className={className}
     >
-      <path d='M1 1L15 11.3158L1 21.6316' stroke={color} stroke-width='2.4' />
+      <path d='M1 1L15 11.3158L1 21.6316' stroke={color} strokeWidth='2.4' />
     </svg>
   </Fragment>
 );
