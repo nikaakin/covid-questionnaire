@@ -1,3 +1,5 @@
+import { PersonalInfo } from '@/pages';
+
 export type PersonalInfoType = {
   first_name: string;
   last_name: string;
@@ -21,3 +23,9 @@ export type AreYouVaccinatedType = {
   last_name: string;
   email: string;
 };
+
+export type FormType =
+  | PersonalInfoType
+  | CovidStateType
+  | CovidPoliticsType
+  | AreYouVaccinatedType;

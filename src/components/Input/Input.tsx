@@ -10,7 +10,7 @@ export const Input = ({ register, errors, name, title }: InputType) => {
       <input
         type='text'
         {...register}
-        className='px-5 py-3 bg-transparent border-[0.8px] border-neutral-850 w-[500px] text-lg '
+        className='px-5 py-3 bg-transparent border-[0.8px] border-neutral-850  text-lg '
       />
 
       <span className='absolute left-2 bottom-0 translate-y-full text-red-550 text-base'>

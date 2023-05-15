@@ -1,5 +1,6 @@
 import { pageContext } from '@/context';
 import { getLocaleStorageValues } from '@/helpers';
+import { FormType } from '@/helpers/type';
 import { routes } from '@/routes';
 import { useContext, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
@@ -21,6 +22,7 @@ export const useLayout = () => {
     },
   });
   const {
+    setValue,
     handleSubmit,
     formState: { isValid },
   } = form;
@@ -33,7 +35,13 @@ export const useLayout = () => {
     if (routes.indexOf(location.pathname.slice(1)) > page) {
       navigate('/');
     }
-  }, [location.pathname, navigate, page]);
+    const defaultValues = getLocaleStorageValues(name);
+    let key: keyof FormType;
+
+    for (key in defaultValues) {
+      setValue(key, defaultValues[key]);
+    }
+  }, [location.pathname, navigate, page, name, setValue]);
 
   const previousPage = () => {
     setShowValue(false);
