@@ -1,6 +1,6 @@
 import { pageContext } from '@/context';
 import { routes } from '@/routes';
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { useNavigate, useOutlet } from 'react-router-dom';
 
 export const useLayout = () => {
@@ -13,18 +13,20 @@ export const useLayout = () => {
   const previousPage = () => {
     setShowValue(false);
     setForwardValue(false);
-    setTimeout(() => setCurrentPage(page - 1), 300);
+    setTimeout(() => {
+      setCurrentPage(page - 1);
+      navigate('/' + routes[page - 1]);
+    }, 300);
   };
 
   const nextPage = () => {
     setShowValue(false);
     setForwardValue(true);
-    setTimeout(() => setCurrentPage(page + 1), 300);
+    setTimeout(() => {
+      setCurrentPage(page + 1);
+      navigate('/' + routes[page + 1]);
+    }, 300);
   };
-
-  useEffect(() => {
-    navigate('/' + name);
-  }, [navigate, name]);
 
   return {
     page,

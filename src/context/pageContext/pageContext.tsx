@@ -2,14 +2,6 @@ import { PropTypes } from './type';
 import { getLocaleStorageValues } from '@/helpers';
 import { FC, createContext, useEffect, useState } from 'react';
 
-export const pages = [
-  'personal-info',
-  'covid-state',
-  'covid-politics',
-  'are-you-vaccinated',
-  'thank-you',
-];
-
 const initialState = getLocaleStorageValues();
 
 export const pageContext = createContext({

@@ -1,10 +1,9 @@
 import { Arrow } from '@/assets/Arrow';
 import { useLayout } from './useLayout';
 import { Link, Outlet } from 'react-router-dom';
-import { CSSTransition } from 'react-transition-group';
 
 export const Layout: React.FC = () => {
-  let { page, previousPage, nextPage, name, nodeRef, show } = useLayout();
+  let { page, previousPage, nextPage } = useLayout();
 
   return (
     <main className='pt-20 px-48 pb-24  min-w-max min-h-screen bg-gray-250 text-neutral-850 flex flex-col '>
@@ -19,22 +18,12 @@ export const Layout: React.FC = () => {
         <span>{page + 1}/4</span>
       </header>
       <section className='flex-1 flex flex-row  justify-between gap-24'>
-        {/* <CSSTransition
-          key={name}
-          nodeRef={nodeRef}
-          timeout={500}
-          in={show}
-          classNames={name}
-          unmountOnExit
-          mountOnEnter
-        > */}
-        <Outlet context={nodeRef} />
-        {/* </CSSTransition> */}
+        <Outlet />
       </section>
       <footer className='w-36 flex justify-between items-center  self-center'>
         {page > 0 && (
           <button onClick={previousPage}>
-            <Arrow rotate />
+            <Arrow className='rotate-180' />
           </button>
         )}
         {page < 3 && (
