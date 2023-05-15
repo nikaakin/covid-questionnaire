@@ -2,8 +2,7 @@ import { Input } from '@/components';
 import { usePersonalInfoForm } from '@/pages/PersonalInfo/components/PersonalInfoForm/usePersonalInfoForm';
 
 export const PersonalInfoForm = () => {
-  const { errors, register, setEmail, setFirstName, setLastName } =
-    usePersonalInfoForm();
+  const { errors, register, setData, data } = usePersonalInfoForm();
   return (
     <div className='text-neutral-850 pt-10'>
       <Input
@@ -14,7 +13,7 @@ export const PersonalInfoForm = () => {
             message: 'სახელის ველი უნდა შედგებოდეს მინიმუმ 2 სიმბოლოსგან',
           },
           onChange(event) {
-            setFirstName(event.target.value);
+            setData({ ...data, first_name: event.target.value });
           },
         })}
         errors={errors}
@@ -29,7 +28,7 @@ export const PersonalInfoForm = () => {
             message: 'გვარის ველი უნდა შედგებოდეს მინიმუმ 2 სიმბოლოსგან',
           },
           onChange(event) {
-            setLastName(event.target.value);
+            setData({ ...data, last_name: event.target.value });
           },
         })}
         errors={errors}
@@ -46,7 +45,7 @@ export const PersonalInfoForm = () => {
               return 'გთხოვთ დარეგისტრირდეთ Redberry-ს მეილით (youremail@redberry.ge)';
           },
           onChange(event) {
-            setEmail(event.target.value);
+            setData({ ...data, email: event.target.value });
           },
         })}
         errors={errors}

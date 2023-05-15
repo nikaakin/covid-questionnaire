@@ -4,23 +4,8 @@ import { Link, Outlet } from 'react-router-dom';
 import { FormProvider, useForm } from 'react-hook-form';
 
 export const Layout: React.FC = () => {
-  let { page, previousPage, nextPage, name, initialValues } = useLayout();
-
-  const form = useForm({
-    mode: 'onChange',
-    shouldUnregister: true,
-    defaultValues: {
-      ...initialValues,
-    },
-  });
-  const {
-    handleSubmit,
-    formState: { isValid },
-  } = form;
-
-  const onSubmit = (data: any) => {
-    localStorage.setItem(name, JSON.stringify(data));
-  };
+  let { page, previousPage, nextPage, form, handleSubmit, isValid, onSubmit } =
+    useLayout();
 
   return (
     <FormProvider {...form}>
