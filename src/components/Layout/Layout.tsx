@@ -3,6 +3,7 @@ import { useLayout } from './useLayout';
 import { Link, Outlet } from 'react-router-dom';
 import { FormProvider } from 'react-hook-form';
 
+
 export const Layout: React.FC = () => {
   let { page, previousPage, nextPage, form, handleSubmit, isValid, onSubmit } =
     useLayout();
@@ -45,5 +46,6 @@ export const Layout: React.FC = () => {
         </footer>
       </form>
     </FormProvider>
+
   );
 };
