@@ -13,6 +13,7 @@ export const LandingPage = () => {
     showLogo,
     text,
     textRef,
+    setCurrentPage,
   } = useLandingPage();
 
   return (
@@ -68,6 +69,9 @@ export const LandingPage = () => {
             text-neutral-850  text-center absolute top-1/2 left-1/2 -translate-x-1/2
             text-shadow overflow-hidden px-2 transition-all duration-100 ease-in-out
             '
+          onClick={() => {
+            setCurrentPage(0);
+          }}
         >
           <span className='block'>კითხვარის</span>
           <span className='block'>დაწყება</span>
