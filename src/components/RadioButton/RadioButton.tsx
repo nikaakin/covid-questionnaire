@@ -1,12 +1,10 @@
-import { CheckboxSvg } from '@/assets/CheckboxSvg';
-import { RadioButtonType } from '@/components/RadioButton/type';
-import { useRadioButton } from '@/components/RadioButton/useRadioButton';
+import { RadioButtonType } from '@/components';
+import { useRadioButton } from '@/components';
 import { ErrorMessage } from '@hookform/error-message';
 import { FC } from 'react';
 
 export const RadioButton: FC<RadioButtonType> = ({ title, name, values }) => {
-  const { checkedValue, errors, register, setCheckedValue } =
-    useRadioButton(name);
+  const { errors, register } = useRadioButton();
 
   return (
     <div className='flex relative flex-col mb-10'>
@@ -15,19 +13,14 @@ export const RadioButton: FC<RadioButtonType> = ({ title, name, values }) => {
         <label
           key={value.en}
           htmlFor={`${name}-${i}`}
-          className='text-xl flex items-center mb-4 pl-4'
+          className='text-xl flex items-center mb-4 pl-12'
         >
-          <CheckboxSvg fill={checkedValue === value.en ? true : false} />
           <input
             type='radio'
             id={`${name}-${i}`}
             value={value.en}
-            className='invisible'
-            {...register(name, {
-              onChange: (event) => {
-                setCheckedValue(event.target.value);
-              },
-            })}
+            className=' relative '
+            {...register(name)}
           />
           {value.ka}
         </label>
