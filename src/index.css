@@ -19,12 +19,50 @@
   transition: all 500ms ease-in-out;
 }
 
+.w-min-content {
+  width: min-content;
+}
+
 .logo-enter {
   opacity: 0;
 }
 .logo-enter-active {
   opacity: 1;
   transition: all 300ms ease-in-out 900ms;
+}
+
+[type='radio'] {
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+[type='radio']::before {
+  content: '';
+  width: 17px;
+  height: 17px;
+  transform: translate(-200%, -50%);
+  border-radius: 50%;
+  background-color: transparent;
+  outline-offset: 2px;
+  outline: 1px solid #232323;
+  position: absolute;
+  top: 50%;
+  left: 0;
+}
+
+[type='radio']:checked::before {
+  content: '';
+  width: 17px;
+  height: 17px;
+  transform: translate(-200%, -50%);
+  border-radius: 50%;
+  background-color: #232323;
+  outline: 1px solid #232323;
+  outline-offset: 2px;
+
+  position: absolute;
+  top: 50%;
+  left: 0;
 }
 
 .text-enter > * {

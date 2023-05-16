@@ -23,8 +23,9 @@ export const useLayout = () => {
     },
   });
   const {
+    setValue,
     handleSubmit,
-    formState: { isValid },
+    formState: { isValid, errors },
   } = form;
 
   const onSubmit = (data: any) => {
@@ -35,7 +36,12 @@ export const useLayout = () => {
     if (routes.indexOf(location.pathname.slice(1)) > page) {
       navigate('/');
     }
-  }, [location.pathname, navigate, page]);
+    const defaultValues = getLocaleStorageValues(name);
+
+    for (const key in defaultValues) {
+      setValue(key, defaultValues[key]);
+    }
+  }, [location.pathname, navigate, page, name, setValue]);
 
   const previousPage = () => {
     setShowValue(false);
@@ -66,5 +72,6 @@ export const useLayout = () => {
     handleSubmit,
     isValid,
     form,
+    errors,
   };
 };

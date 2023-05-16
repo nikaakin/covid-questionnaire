@@ -1,6 +1,5 @@
 import { PersonalInfoDataType } from './type';
-import { getLocaleStorageValues } from '@/helpers';
-import { PersonalInfoType } from '@/helpers/type';
+import { PersonalInfoType, getLocaleStorageValues } from '@/helpers';
 import { FC, PropsWithChildren, createContext, useState } from 'react';
 
 const initialState = getLocaleStorageValues(
