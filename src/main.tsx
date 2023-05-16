@@ -12,7 +12,7 @@ import {
 } from '@/pages';
 import { PageContext } from '@/context';
 import { Layout } from '@/components';
-import { PersonalInfoContextProvider } from '@/context/personalInfoContext';
+import { PersonalInfoContextProvider } from '@/context';
 
 const router = createBrowserRouter([
   {

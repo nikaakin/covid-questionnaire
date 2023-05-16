@@ -1,5 +1,5 @@
-import { RadioButtonType } from '@/components';
-import { useRadioButton } from '@/components';
+import { RadioButtonType } from './type';
+import { useRadioButton } from './useRadioButton';
 import { ErrorMessage } from '@hookform/error-message';
 import { FC } from 'react';
 
@@ -20,7 +20,10 @@ export const RadioButton: FC<RadioButtonType> = ({ title, name, values }) => {
             id={`${name}-${i}`}
             value={value.en}
             className=' relative '
-            {...register(name)}
+            {...register(name, {
+              // todo
+              onChange: (e) => localStorage.setItem(e.target.value, '2'),
+            })}
           />
           {value.ka}
         </label>

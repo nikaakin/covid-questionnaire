@@ -1,4 +1,4 @@
-import { useLandingPage } from '@/pages';
+import { useLandingPage } from './useLandingPage';
 import { Link } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 
