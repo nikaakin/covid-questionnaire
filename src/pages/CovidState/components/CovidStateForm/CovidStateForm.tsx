@@ -1,5 +1,5 @@
 import { RadioButton } from '@/components/RadioButton';
-import { useCovidStateForm } from '@/pages/CovidState/components/CovidStateForm/useCovidStateForm';
+import { useCovidStateForm } from './useCovidStateForm';
 
 export const CovidStateForm = () => {
   const { clearErrors, errors, register, setError, setValue } =

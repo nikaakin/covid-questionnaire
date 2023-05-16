@@ -1,5 +1,5 @@
 import { Input } from '@/components';
-import { usePersonalInfoForm } from '@/pages/PersonalInfo/components/PersonalInfoForm/usePersonalInfoForm';
+import { usePersonalInfoForm } from './usePersonalInfoForm';
 
 export const PersonalInfoForm = () => {
   const { errors, register, setData, data } = usePersonalInfoForm();

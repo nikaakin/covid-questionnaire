@@ -1,4 +1,4 @@
-import { useTransitionClass } from '@/hooks/useTransitionClass';
+import { useTransitionClass } from '@/hooks';
 
 export const CovidStateAnimation = () => {
   const className = useTransitionClass();

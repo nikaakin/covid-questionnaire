@@ -1,4 +1,4 @@
-import { InputType } from '@/components';
+import { InputType } from './type';
 import { ErrorMessage } from '@hookform/error-message';
 
 export const Input = ({ register, errors, name, title }: InputType) => {
