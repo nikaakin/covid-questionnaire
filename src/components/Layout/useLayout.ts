@@ -1,6 +1,5 @@
 import { pageContext } from '@/context';
 import { getLocaleStorageValues } from '@/helpers';
-import { FormType } from '@/helpers/type';
 import { routes } from '@/routes';
 import { useContext, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
@@ -24,7 +23,7 @@ export const useLayout = () => {
   const {
     setValue,
     handleSubmit,
-    formState: { isValid },
+    formState: { isValid, errors },
   } = form;
 
   const onSubmit = (data: any) => {
@@ -36,9 +35,8 @@ export const useLayout = () => {
       navigate('/');
     }
     const defaultValues = getLocaleStorageValues(name);
-    let key: keyof FormType;
 
-    for (key in defaultValues) {
+    for (const key in defaultValues) {
       setValue(key, defaultValues[key]);
     }
   }, [location.pathname, navigate, page, name, setValue]);
@@ -72,5 +70,6 @@ export const useLayout = () => {
     handleSubmit,
     isValid,
     form,
+    errors,
   };
 };
