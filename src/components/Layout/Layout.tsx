@@ -26,7 +26,7 @@ export const Layout: React.FC = () => {
         <section className='flex-1 flex flex-row  justify-between gap-12'>
           <Outlet />
         </section>
-        <footer className='w-36 flex justify-between items-center  absolute bottom-24 left-1/2 -translate-x-1/2 -translate-y-full  '>
+        <footer className='w-36  z-20 flex justify-between items-center  absolute bottom-24 left-1/2 -translate-x-1/2 -translate-y-full  '>
           {page > 0 && (
             <button onClick={previousPage}>
               <Arrow className='rotate-180' />
