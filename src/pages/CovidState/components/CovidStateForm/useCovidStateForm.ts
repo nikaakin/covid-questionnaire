@@ -17,10 +17,12 @@ export const useCovidStateForm = () => {
     trigger();
   }, []);
 
-  const watchAntibodiesTest = useWatch({ name: 'had_antibody_test' });
-  const firstAdditionalInput = useWatch({ name: 'had_covid' }) === 'yes';
-  const secondAdditionalInput = watchAntibodiesTest === 'true';
-  const thirdAdditionalInput = watchAntibodiesTest === 'false';
+  const watchAntibodiesTest = useWatch({
+    name: ['had_covid', 'had_antibody_test'],
+  });
+  const firstAdditionalInput = watchAntibodiesTest[0] === 'yes';
+  const secondAdditionalInput = watchAntibodiesTest[1] === 'true';
+  const thirdAdditionalInput = watchAntibodiesTest[1] === 'false';
 
   const dateRegisterArguments = {
     shouldUnregister: true,
