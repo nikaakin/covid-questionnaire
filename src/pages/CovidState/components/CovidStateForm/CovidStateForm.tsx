@@ -1,17 +1,16 @@
-import { RadioButton } from '@/components/RadioButton';
-import { Input } from '@/components';
+import { RadioButton, Input } from '@/components';
 import { useCovidStateForm } from '@/pages';
 
 export const CovidStateForm = () => {
   const {
     dateRegisterArguments,
     errors,
-    firstAdditionalInput,
     register,
-    secondAdditionalInput,
     setAntibodies,
-    thirdAdditionalInput,
     data,
+    firstAdditionalInput,
+    secondAdditionalInput,
+    thirdAdditionalInput,
   } = useCovidStateForm();
 
   return (

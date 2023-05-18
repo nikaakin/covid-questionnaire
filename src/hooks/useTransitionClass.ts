@@ -1,5 +1,5 @@
+import { routes } from '@/config';
 import { pageContext } from '@/context';
-import { routes } from '@/routes';
 import { useContext, useEffect, useState } from 'react';
 
 export const useTransitionClass = () => {

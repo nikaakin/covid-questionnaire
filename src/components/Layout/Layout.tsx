@@ -1,7 +1,7 @@
-import { Arrow } from '@/assets/Arrow';
 import { useLayout } from './useLayout';
 import { Link, Outlet } from 'react-router-dom';
 import { FormProvider } from 'react-hook-form';
+import { Arrow } from '@/components';
 
 export const Layout: React.FC = () => {
   let { page, previousPage, nextPage, form, handleSubmit, isValid, onSubmit } =

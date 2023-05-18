@@ -1,11 +1,5 @@
 import { CovidStateType, getLocaleStorageValues } from '@/helpers';
-import {
-  FC,
-  PropsWithChildren,
-  createContext,
-  useEffect,
-  useState,
-} from 'react';
+import { FC, PropsWithChildren, createContext, useState } from 'react';
 
 const {
   antibodies,
@@ -21,9 +15,6 @@ export const covidStateContext = createContext({
     had_antibody_test,
     covid_sickness_date,
   },
-  firstAdditionalInput: false,
-  secondAdditionalInput: false,
-  thirdAdditionalInput: false,
   setCovidStateData: (key: string, value: string) => {},
   setAntibodies: (key: string, value: string) => {},
 });
@@ -35,42 +26,6 @@ export const CovidStateProvider: FC<PropsWithChildren> = ({ children }) => {
     had_antibody_test,
     covid_sickness_date,
   });
-  const [additionalInputs, setAdditionalInput] = useState({
-    firstAdditionalInput: false,
-    secondAdditionalInput: false,
-    thirdAdditionalInput: false,
-  });
-
-  useEffect(() => {
-    if (data.had_covid === 'yes') {
-      setAdditionalInput((inputs) => ({
-        ...inputs,
-        firstAdditionalInput: true,
-      }));
-    } else {
-      setAdditionalInput((inputs) => ({
-        ...inputs,
-        firstAdditionalInput: false,
-      }));
-    }
-  }, [data.had_covid]);
-
-  useEffect(() => {
-    if (data.had_antibody_test === 'true') {
-      setAdditionalInput((inputs) => ({
-        ...inputs,
-        thirdAdditionalInput: false,
-        secondAdditionalInput: true,
-      }));
-    }
-    if (data.had_antibody_test === 'false') {
-      setAdditionalInput((inputs) => ({
-        ...inputs,
-        secondAdditionalInput: false,
-        thirdAdditionalInput: true,
-      }));
-    }
-  }, [data.had_antibody_test]);
 
   const setCovidStateData = (key: string, value: string) => {
     localStorage.setItem(
@@ -98,7 +53,6 @@ export const CovidStateProvider: FC<PropsWithChildren> = ({ children }) => {
     <covidStateContext.Provider
       value={{
         data,
-        ...additionalInputs,
         setCovidStateData,
         setAntibodies,
       }}
