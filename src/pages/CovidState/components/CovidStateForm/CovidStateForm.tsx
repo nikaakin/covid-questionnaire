@@ -52,6 +52,7 @@ export const CovidStateForm = () => {
       {firstAdditionalInput && thirdAdditionalInput && (
         <>
           <Input
+            value={data.antibodies?.number || ''}
             register={register('number', {
               shouldUnregister: true,
               validate: (value: string) => {
@@ -67,6 +68,7 @@ export const CovidStateForm = () => {
             placeholder='რიცხვი'
           />
           <Input
+            value={data.antibodies?.test_date || ''}
             register={register('test_data', {
               shouldUnregister: true,
               validate: (value: string) => {
