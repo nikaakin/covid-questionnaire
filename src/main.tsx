@@ -43,6 +43,26 @@ const router = createBrowserRouter([
         element: <AreYouVaccinated />,
       },
     ],
+    path: '/',
+    element: <Layout />,
+    children: [
+      {
+        path: '/personal-info',
+        element: <PersonalInfo />,
+      },
+      {
+        path: '/covid-state',
+        element: <CovidState />,
+      },
+      {
+        path: '/covid-politics',
+        element: <CovidPolitics />,
+      },
+      {
+        path: '/are-you-vaccinated',
+        element: <AreYouVaccinated />,
+      },
+    ],
   },
   {
     path: '/thank-you',
