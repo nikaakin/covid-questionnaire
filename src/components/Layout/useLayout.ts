@@ -20,9 +20,11 @@ export const useLayout = () => {
       ...initialValues,
     },
   });
+
   const {
     setValue,
     handleSubmit,
+    trigger,
     formState: { isValid, errors },
   } = form;
 
@@ -51,6 +53,8 @@ export const useLayout = () => {
   };
 
   const nextPage = () => {
+    if (!isValid) return trigger();
+
     setShowValue(false);
     setForwardValue(true);
     setTimeout(() => {

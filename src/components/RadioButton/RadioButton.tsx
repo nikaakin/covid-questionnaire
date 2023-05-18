@@ -3,8 +3,13 @@ import { useRadioButton } from './useRadioButton';
 import { ErrorMessage } from '@hookform/error-message';
 import { FC } from 'react';
 
-export const RadioButton: FC<RadioButtonType> = ({ title, name, values }) => {
-  const { errors, register } = useRadioButton();
+export const RadioButton: FC<RadioButtonType> = ({
+  title,
+  name,
+  values,
+  isRequired = false,
+}) => {
+  const { errors, register, setCovidStateData } = useRadioButton();
 
   return (
     <div className='flex relative flex-col mb-10'>
@@ -21,8 +26,11 @@ export const RadioButton: FC<RadioButtonType> = ({ title, name, values }) => {
             value={value.en}
             className=' relative '
             {...register(name, {
-              // todo
-              onChange: (e) => localStorage.setItem(e.target.value, '2'),
+              shouldUnregister: true,
+              required: isRequired,
+              onChange: (e) => {
+                setCovidStateData(name, e.target.value);
+              },
             })}
           />
           {value.ka}

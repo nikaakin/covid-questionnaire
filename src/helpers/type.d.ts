@@ -5,10 +5,10 @@ export type PersonalInfoType = {
 };
 
 export type CovidStateType = {
-  had_covid: 'yes' | 'no' | 'have_right_now';
-  had_antibody_test: boolean;
-  covid_sickness_date: string;
-  antibodies: { test_date: string; number: integer };
+  had_covid: 'yes' | 'no' | 'have_right_now' | null;
+  had_antibody_test: string | null;
+  covid_sickness_date: string | null;
+  antibodies: { test_date: string; number: string } | null;
 };
 
 export type CovidPoliticsType = {

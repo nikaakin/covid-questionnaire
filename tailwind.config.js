@@ -33,6 +33,7 @@ export default {
       },
       fontFamily: {
         'anonymous-pro': 'Anonymous Pro, monospace',
+        'helvetica-neue': 'Helvetica Neue, sans-serif',
       },
     },
   },

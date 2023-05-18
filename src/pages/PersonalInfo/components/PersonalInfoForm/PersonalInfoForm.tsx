@@ -6,6 +6,7 @@ export const PersonalInfoForm = () => {
   return (
     <div className='text-neutral-850 pt-10 flex-1'>
       <Input
+        placeholder='სახელი'
         register={register('first_name', {
           required: 'სახელის ველის შევსება სავალდებულოა',
           minLength: {
@@ -18,9 +19,10 @@ export const PersonalInfoForm = () => {
         })}
         errors={errors}
         name='first_name'
-        title='სახელი'
+        title='სახელი*'
       />
       <Input
+        placeholder='გვარი'
         register={register('last_name', {
           required: 'გვარის ველის შევსება სავალდებულოა',
           minLength: {
@@ -33,9 +35,10 @@ export const PersonalInfoForm = () => {
         })}
         errors={errors}
         name='last_name'
-        title='გვარი'
+        title='გვარი*'
       />
       <Input
+        placeholder='ელ.ფოსტა'
         register={register('email', {
           required: 'ელ.ფოსტის ველის შევსება სავალდებულოა',
           validate: (value: string) => {
@@ -50,7 +53,7 @@ export const PersonalInfoForm = () => {
         })}
         errors={errors}
         name='email'
-        title='ელ.ფოსტა'
+        title='ელ.ფოსტა*'
       />
 
       <span className='block mt-16   text-base text-zinc-650 w-72'>

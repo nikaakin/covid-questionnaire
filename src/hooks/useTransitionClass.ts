@@ -7,6 +7,7 @@ export const useTransitionClass = () => {
     useContext(pageContext);
   const [initialLoad, setInitialLoad] = useState(false);
   const name = routes[page];
+
   const style = () => {
     if (forwardAnimation) {
       if (!initialLoad) {

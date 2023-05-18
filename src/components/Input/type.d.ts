@@ -8,5 +8,9 @@ export type InputType = {
   register: UseFormRegisterReturn<string>;
   errors: FieldErrors<FieldValues>;
   name: string;
-  title: string;
+  title?: string;
+  placeholder: string;
+  type?: string;
+  classNames?: string;
+  value?: string;
 };
