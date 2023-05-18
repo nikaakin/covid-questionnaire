@@ -12,15 +12,26 @@ export type CovidStateType = {
 };
 
 export type CovidPoliticsType = {
-  first_name: string;
-  last_name: string;
-  email: string;
+  had_vaccine: string;
+  vaccination_stage:
+    | 'first_dosage_and_registered_on_the_second'
+    | 'fully_vaccinated'
+    | 'first_dosage_and_not_registered_yet';
+  i_am_waiting:
+    | 'registered_and_waiting'
+    | 'not_planning'
+    | 'had_covid_and_planning_to_be_vaccinated';
 };
 
 export type AreYouVaccinatedType = {
-  first_name: string;
-  last_name: string;
-  email: string;
+  non_formal_meetings:
+    | 'twice_a_week'
+    | 'once_a_week'
+    | 'once_in_a_two_weeks'
+    | 'once_in_a_month';
+  number_of_days_from_office: '0' | '1' | '2' | '3' | '4' | '5';
+  what_about_meetings_in_live: string;
+  tell_us_your_opinion_about_us: string;
 };
 
 export type FormType =

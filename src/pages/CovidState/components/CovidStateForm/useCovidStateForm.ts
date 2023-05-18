@@ -52,5 +52,6 @@ export const useCovidStateForm = () => {
     errors,
     setAntibodies,
     data,
+    setCovidStateData,
   };
 };

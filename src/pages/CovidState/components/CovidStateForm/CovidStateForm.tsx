@@ -11,11 +11,13 @@ export const CovidStateForm = () => {
     firstAdditionalInput,
     secondAdditionalInput,
     thirdAdditionalInput,
+    setCovidStateData,
   } = useCovidStateForm();
 
   return (
     <div className='text-neutral-850 pt-10 flex-1'>
       <RadioButton
+        setOnChange={setCovidStateData}
         name='had_covid'
         title='გაქვს გადატანილი Covid-19?*'
         values={[
@@ -28,6 +30,7 @@ export const CovidStateForm = () => {
 
       {firstAdditionalInput && (
         <RadioButton
+          setOnChange={setCovidStateData}
           name='had_antibody_test'
           title='ანტისხეულების ტესტი გაქვს გაკეთებული?*'
           values={[
