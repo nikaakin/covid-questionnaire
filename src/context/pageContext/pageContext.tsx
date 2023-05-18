@@ -1,7 +1,6 @@
 import { PropTypes } from './type';
 import { FC, createContext, useEffect, useState } from 'react';
 
-
 export const pageContext = createContext({
   page: 0,
   forwardAnimation: true,

@@ -1,5 +1,5 @@
+import { routes } from '@/config';
 import { pageContext } from '@/context';
-import { routes } from '@/routes';
 import { useContext, useEffect, useState } from 'react';
 
 export const useTransitionClass = () => {
@@ -7,6 +7,7 @@ export const useTransitionClass = () => {
     useContext(pageContext);
   const [initialLoad, setInitialLoad] = useState(false);
   const name = routes[page];
+
   const style = () => {
     if (forwardAnimation) {
       if (!initialLoad) {

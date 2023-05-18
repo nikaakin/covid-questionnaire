@@ -10,9 +10,12 @@ import {
   PersonalInfo,
   ThankYou,
 } from '@/pages';
-import { PageContext } from '@/context';
+import {
+  PageContext,
+  PersonalInfoContextProvider,
+  CovidStateProvider,
+} from '@/context';
 import { Layout } from '@/components';
-import { PersonalInfoContextProvider } from '@/context';
 
 const router = createBrowserRouter([
   {
@@ -51,7 +54,9 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <PageContext>
       <PersonalInfoContextProvider>
-        <RouterProvider router={router} />
+        <CovidStateProvider>
+          <RouterProvider router={router} />
+        </CovidStateProvider>
       </PersonalInfoContextProvider>
     </PageContext>
   </React.StrictMode>

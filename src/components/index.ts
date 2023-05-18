@@ -1,3 +1,3 @@
 export * from './Layout';
-export * from './Input';
-export * from './RadioButton';
+export * from './Icons';
+export * from './shared';
