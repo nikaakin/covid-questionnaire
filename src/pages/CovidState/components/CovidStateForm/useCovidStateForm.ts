@@ -1,6 +1,6 @@
 import { covidStateContext } from '@/context';
 import { changeDateValue } from '@/helpers';
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { useFormContext, useWatch } from 'react-hook-form';
 
 export const useCovidStateForm = () => {
@@ -9,13 +9,8 @@ export const useCovidStateForm = () => {
 
   const {
     register,
-    trigger,
     formState: { errors },
   } = useFormContext();
-
-  useEffect(() => {
-    trigger();
-  }, [trigger]);
 
   const watchAntibodiesTest = useWatch({
     name: ['had_covid', 'had_antibody_test'],
