@@ -44,7 +44,7 @@ export const PersonalInfoForm = () => {
           validate: (value: string) => {
             if (!value.includes('@'))
               return 'თქვენ მიერ შეყვანილი მეილი არასწორია';
-            if (!value.includes('@redberry.ge'))
+            if (!value.endsWith('@redberry.ge'))
               return 'გთხოვთ დარეგისტრირდეთ Redberry-ს მეილით (youremail@redberry.ge)';
           },
           onChange(event) {

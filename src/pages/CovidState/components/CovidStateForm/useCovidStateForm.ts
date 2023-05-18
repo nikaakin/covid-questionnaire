@@ -15,7 +15,7 @@ export const useCovidStateForm = () => {
 
   useEffect(() => {
     trigger();
-  }, []);
+  }, [trigger]);
 
   const watchAntibodiesTest = useWatch({
     name: ['had_covid', 'had_antibody_test'],
