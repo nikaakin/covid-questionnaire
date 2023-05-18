@@ -41,7 +41,7 @@ export const CovidStateForm = () => {
       {firstAdditionalInput && secondAdditionalInput && (
         <Input
           placeholder='დდ/თთ/წწ'
-          value={data.covid_sickness_date as string}
+          value={data.covid_sickness_date || ''}
           errors={errors}
           name='covid_sickness_date'
           title='მიუთითე მიახლოებითი პერიოდი (დღე/თვე/წელი) როდის გქონდა Covid-19*'

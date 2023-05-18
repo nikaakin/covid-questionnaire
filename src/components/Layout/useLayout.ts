@@ -53,14 +53,15 @@ export const useLayout = () => {
   };
 
   const nextPage = () => {
-    if (!isValid) return trigger();
-
-    setShowValue(false);
-    setForwardValue(true);
-    setTimeout(() => {
-      setCurrentPage(page + 1);
-      navigate('/' + routes[page + 1]);
-    }, 300);
+    trigger().then((isValid) => {
+      if (!isValid) return;
+      setShowValue(false);
+      setForwardValue(true);
+      setTimeout(() => {
+        setCurrentPage(page + 1);
+        navigate('/' + routes[page + 1]);
+      }, 300);
+    });
   };
 
   return {

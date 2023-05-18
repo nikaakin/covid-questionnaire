@@ -20,10 +20,7 @@ export const RadioButton: FC<RadioButtonType> = ({ title, name, values }) => {
             id={`${name}-${i}`}
             value={value.en}
             className=' relative '
-            {...register(name, {
-              // todo
-              onChange: (e) => localStorage.setItem(e.target.value, '2'),
-            })}
+            {...register(name)}
           />
           {value.ka}
         </label>
