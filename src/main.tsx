@@ -14,6 +14,8 @@ import {
   PageContext,
   PersonalInfoContextProvider,
   CovidStateProvider,
+  CovidPoliticsProvider,
+  AreYouVaccinatedProvider,
 } from '@/context';
 import { Layout } from '@/components';
 
@@ -55,7 +57,11 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <PageContext>
       <PersonalInfoContextProvider>
         <CovidStateProvider>
-          <RouterProvider router={router} />
+          <CovidPoliticsProvider>
+            <AreYouVaccinatedProvider>
+              <RouterProvider router={router} />
+            </AreYouVaccinatedProvider>
+          </CovidPoliticsProvider>
         </CovidStateProvider>
       </PersonalInfoContextProvider>
     </PageContext>

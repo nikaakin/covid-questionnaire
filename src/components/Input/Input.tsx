@@ -4,7 +4,7 @@ import { ErrorMessage } from '@hookform/error-message';
 export const Input = ({ register, errors, name, title }: InputType) => {
   return (
     <div className='flex relative flex-col mb-10'>
-      <label htmlFor={name} className='font-bold text-2xl mb-3'>
+      <label htmlFor={name} className='font-bold text-xl mb-3'>
         {title}*
       </label>
       <input

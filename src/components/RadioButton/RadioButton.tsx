@@ -8,7 +8,7 @@ export const RadioButton: FC<RadioButtonType> = ({ title, name, values }) => {
 
   return (
     <div className='flex relative flex-col mb-10'>
-      <h1 className='font-bold text-2xl mb-4 '>{title}</h1>
+      <h1 className='font-bold text-xl mb-4 '>{title}</h1>
       {values.map((value, i) => (
         <label
           key={value.en}

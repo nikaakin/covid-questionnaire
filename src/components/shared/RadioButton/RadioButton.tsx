@@ -8,8 +8,9 @@ export const RadioButton: FC<RadioButtonType> = ({
   name,
   values,
   isRequired = false,
+  setOnChange,
 }) => {
-  const { errors, register, setCovidStateData } = useRadioButton();
+  const { errors, register } = useRadioButton();
 
   return (
     <div className='flex relative flex-col mb-10'>
@@ -29,7 +30,7 @@ export const RadioButton: FC<RadioButtonType> = ({
               shouldUnregister: true,
               required: isRequired,
               onChange: (e) => {
-                setCovidStateData(name, e.target.value);
+                setOnChange(name, e.target.value);
               },
             })}
           />

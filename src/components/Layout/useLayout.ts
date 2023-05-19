@@ -1,6 +1,6 @@
 import { routes } from '@/config';
 import { pageContext } from '@/context';
-import { getLocaleStorageValues } from '@/helpers';
+import { FormType, getLocaleStorageValues } from '@/helpers';
 import { useContext, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -28,7 +28,7 @@ export const useLayout = () => {
     formState: { isValid, errors },
   } = form;
 
-  const onSubmit = (data: any) => {
+  const onSubmit = (data: FormType) => {
     localStorage.setItem(name, JSON.stringify(data));
   };
 
@@ -41,7 +41,9 @@ export const useLayout = () => {
     for (const key in defaultValues) {
       setValue(key, defaultValues[key]);
     }
-  }, [location.pathname, navigate, page, name, setValue]);
+
+    trigger();
+  }, [location.pathname, navigate, page, name, setValue, trigger]);
 
   const previousPage = () => {
     setShowValue(false);

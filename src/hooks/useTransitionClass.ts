@@ -1,32 +1,30 @@
-import { routes } from '@/config';
 import { pageContext } from '@/context';
 import { useContext, useEffect, useState } from 'react';
 
-export const useTransitionClass = () => {
-  const { forwardAnimation, show, setShowValue, page } =
-    useContext(pageContext);
+export const useTransitionClass = (name: string, secondName?: string) => {
+  const { forwardAnimation, show, setShowValue } = useContext(pageContext);
   const [initialLoad, setInitialLoad] = useState(false);
-  const name = routes[page];
 
-  const style = () => {
+  const style = (className: string) => {
+    if (className === '') return;
     if (forwardAnimation) {
       if (!initialLoad) {
-        return `${name}-enter`;
+        return `${className}-enter`;
       } else {
         if (show) {
-          return `${name}-enter-active`;
+          return `${className}-enter-active`;
         } else {
-          return `${name}-exit-active`;
+          return `${className}-exit-active`;
         }
       }
     } else {
       if (!initialLoad) {
-        return `${name}-exit-active`;
+        return `${className}-exit-active`;
       } else {
         if (show) {
-          return `${name}-enter-active`;
+          return `${className}-enter-active`;
         } else {
-          return `${name}-enter`;
+          return `${className}-enter`;
         }
       }
     }
@@ -37,5 +35,5 @@ export const useTransitionClass = () => {
     setInitialLoad(true);
   }, []);
 
-  return style();
+  return [style(name), style(secondName || '')];
 };

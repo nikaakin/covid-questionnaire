@@ -1,9 +1,6 @@
-import { covidStateContext } from '@/context';
-import { useContext } from 'react';
 import { useFormContext } from 'react-hook-form';
 
 export const useRadioButton = () => {
-  const { setCovidStateData } = useContext(covidStateContext);
   const {
     register,
     setValue,
@@ -14,6 +11,5 @@ export const useRadioButton = () => {
     register,
     errors,
     setValue,
-    setCovidStateData,
   };
 };

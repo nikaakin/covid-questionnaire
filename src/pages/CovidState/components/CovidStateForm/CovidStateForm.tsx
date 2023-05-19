@@ -6,16 +6,17 @@ export const CovidStateForm = () => {
     dateRegisterArguments,
     errors,
     register,
-    setAntibodies,
     data,
     firstAdditionalInput,
     secondAdditionalInput,
     thirdAdditionalInput,
+    setCovidStateData,
   } = useCovidStateForm();
 
   return (
     <div className='text-neutral-850 pt-10 flex-1'>
       <RadioButton
+        setOnChange={setCovidStateData}
         name='had_covid'
         title='გაქვს გადატანილი Covid-19?*'
         values={[
@@ -28,6 +29,7 @@ export const CovidStateForm = () => {
 
       {firstAdditionalInput && (
         <RadioButton
+          setOnChange={setCovidStateData}
           name='had_antibody_test'
           title='ანტისხეულების ტესტი გაქვს გაკეთებული?*'
           values={[
@@ -38,7 +40,7 @@ export const CovidStateForm = () => {
         />
       )}
 
-      {firstAdditionalInput && secondAdditionalInput && (
+      {firstAdditionalInput && thirdAdditionalInput && (
         <Input
           placeholder='დდ/თთ/წწ'
           value={data.covid_sickness_date || ''}
@@ -49,10 +51,10 @@ export const CovidStateForm = () => {
         />
       )}
 
-      {firstAdditionalInput && thirdAdditionalInput && (
+      {firstAdditionalInput && secondAdditionalInput && (
         <>
           <Input
-            value={data.antibodies?.number || ''}
+            value={data.number || ''}
             register={register('number', {
               shouldUnregister: true,
               validate: (value: string) => {
@@ -60,7 +62,8 @@ export const CovidStateForm = () => {
                   return 'რიცხვით უნდა იყოს';
                 return true;
               },
-              onChange: (event) => setAntibodies('number', event.target.value),
+              onChange: (event) =>
+                setCovidStateData('number', event.target.value),
             })}
             errors={errors}
             name='number'
@@ -68,8 +71,8 @@ export const CovidStateForm = () => {
             placeholder='რიცხვი'
           />
           <Input
-            value={data.antibodies?.test_date || ''}
-            register={register('test_data', {
+            value={data.test_date || ''}
+            register={register('test_date', {
               shouldUnregister: true,
               validate: (value: string) => {
                 if (value !== '' && !Number.isInteger(+value))
@@ -77,10 +80,10 @@ export const CovidStateForm = () => {
                 return true;
               },
               onChange: (event) =>
-                setAntibodies('test_data', event.target.value),
+                setCovidStateData('test_date', event.target.value),
             })}
             errors={errors}
-            name='test_data'
+            name='test_date'
             placeholder='ანტისხეულების რაოდენობა'
           />
         </>

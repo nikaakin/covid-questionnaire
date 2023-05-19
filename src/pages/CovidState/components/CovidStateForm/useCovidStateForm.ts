@@ -1,21 +1,15 @@
 import { covidStateContext } from '@/context';
 import { changeDateValue } from '@/helpers';
-import { useContext, useEffect } from 'react';
+import { ChangeEvent, useContext } from 'react';
 import { useFormContext, useWatch } from 'react-hook-form';
 
 export const useCovidStateForm = () => {
-  const { data, setCovidStateData, setAntibodies } =
-    useContext(covidStateContext);
+  const { data, setCovidStateData } = useContext(covidStateContext);
 
   const {
     register,
-    trigger,
     formState: { errors },
   } = useFormContext();
-
-  useEffect(() => {
-    trigger();
-  }, [trigger]);
 
   const watchAntibodiesTest = useWatch({
     name: ['had_covid', 'had_antibody_test'],
@@ -34,7 +28,7 @@ export const useCovidStateForm = () => {
       if (value.length < 8) return 'თარიღი არასწორია';
       return true;
     },
-    onChange(event: any) {
+    onChange(event: ChangeEvent<HTMLInputElement>) {
       changeDateValue(
         event.target.value,
         setCovidStateData,
@@ -50,7 +44,7 @@ export const useCovidStateForm = () => {
     dateRegisterArguments,
     register,
     errors,
-    setAntibodies,
     data,
+    setCovidStateData,
   };
 };
