@@ -41,8 +41,6 @@ export const useLayout = () => {
     for (const key in defaultValues) {
       setValue(key, defaultValues[key]);
     }
-
-    trigger();
   }, [location.pathname, navigate, page, name, setValue, trigger]);
 
   const previousPage = () => {
