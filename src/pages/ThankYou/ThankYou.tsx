@@ -1,8 +1,10 @@
 import { useTransitionClass } from '@/hooks';
 
 export const ThankYou = () => {
-  const className = useTransitionClass('thank-you');
-  const anotherClassName = useTransitionClass('thank-you-another');
+  const [className, anotherClassName] = useTransitionClass(
+    'thank-you',
+    'thank-you-another'
+  );
 
   return (
     <div className='bg-neutral-850 w-screen h-screen'>

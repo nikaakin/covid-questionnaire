@@ -5,6 +5,7 @@ import {
   pageContext,
   personalInfoContext,
 } from '@/context';
+import { CovidPoliticsApiType, CovidStateApiType } from '@/helpers';
 import { useContext } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
@@ -27,7 +28,9 @@ export const useAreYouVaccinated = () => {
     trigger().then((isValid) => {
       if (!isValid) return;
 
-      let covidState: any = { had_covid: covidStateData.had_covid };
+      let covidState: CovidStateApiType = {
+        had_covid: covidStateData.had_covid,
+      };
       if (covidStateData.had_covid === 'yes') {
         if (covidStateData.had_antibody_test === 'false') {
           const dateSplit = covidStateData.covid_sickness_date!.split('/');
@@ -47,13 +50,13 @@ export const useAreYouVaccinated = () => {
             had_antibody_test: true,
             antibodies: {
               number: +covidStateData.number!,
-              test_date: new Date(covidStateData.test_date!),
+              test_date: new Date(+covidStateData.test_date!),
             },
           };
         }
       }
 
-      let covidPolitics: any = {
+      let covidPolitics: CovidPoliticsApiType = {
         had_vaccine: covidPoliticsData.had_vaccine === 'true' ? true : false,
       };
 

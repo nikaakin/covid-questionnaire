@@ -1,6 +1,6 @@
 import { covidStateContext } from '@/context';
 import { changeDateValue } from '@/helpers';
-import { useContext } from 'react';
+import { ChangeEvent, useContext } from 'react';
 import { useFormContext, useWatch } from 'react-hook-form';
 
 export const useCovidStateForm = () => {
@@ -28,7 +28,7 @@ export const useCovidStateForm = () => {
       if (value.length < 8) return 'თარიღი არასწორია';
       return true;
     },
-    onChange(event: any) {
+    onChange(event: ChangeEvent<HTMLInputElement>) {
       changeDateValue(
         event.target.value,
         setCovidStateData,

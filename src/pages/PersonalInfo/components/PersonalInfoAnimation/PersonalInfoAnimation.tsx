@@ -1,7 +1,7 @@
 import { useTransitionClass } from '@/hooks';
 
 export const PersonalInfoAnimation = () => {
-  const className = useTransitionClass('personal-info');
+  const [className] = useTransitionClass('personal-info');
   return (
     <div className='basis-[60%] relative '>
       <img

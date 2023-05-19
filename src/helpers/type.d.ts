@@ -11,6 +11,13 @@ export type CovidStateType = {
   antibodies: { test_date: string; number: string } | null;
 };
 
+export type CovidStateApiType = {
+  had_covid: 'yes' | 'no' | 'have_right_now' | null;
+  had_antibody_test?: boolean;
+  covid_sickness_date?: Date;
+  antibodies?: { test_date: Date; number: number } | null;
+};
+
 export type CovidPoliticsType = {
   had_vaccine: string;
   vaccination_stage:
@@ -18,6 +25,18 @@ export type CovidPoliticsType = {
     | 'fully_vaccinated'
     | 'first_dosage_and_not_registered_yet';
   i_am_waiting:
+    | 'registered_and_waiting'
+    | 'not_planning'
+    | 'had_covid_and_planning_to_be_vaccinated';
+};
+
+export type CovidPoliticsApiType = {
+  had_vaccine: boolean;
+  vaccination_stage?:
+    | 'first_dosage_and_registered_on_the_second'
+    | 'fully_vaccinated'
+    | 'first_dosage_and_not_registered_yet';
+  i_am_waiting?:
     | 'registered_and_waiting'
     | 'not_planning'
     | 'had_covid_and_planning_to_be_vaccinated';

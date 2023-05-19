@@ -1,29 +1,30 @@
 import { pageContext } from '@/context';
 import { useContext, useEffect, useState } from 'react';
 
-export const useTransitionClass = (name: string) => {
+export const useTransitionClass = (name: string, secondName?: string) => {
   const { forwardAnimation, show, setShowValue } = useContext(pageContext);
   const [initialLoad, setInitialLoad] = useState(false);
 
-  const style = () => {
+  const style = (className: string) => {
+    if (className === '') return;
     if (forwardAnimation) {
       if (!initialLoad) {
-        return `${name}-enter`;
+        return `${className}-enter`;
       } else {
         if (show) {
-          return `${name}-enter-active`;
+          return `${className}-enter-active`;
         } else {
-          return `${name}-exit-active`;
+          return `${className}-exit-active`;
         }
       }
     } else {
       if (!initialLoad) {
-        return `${name}-exit-active`;
+        return `${className}-exit-active`;
       } else {
         if (show) {
-          return `${name}-enter-active`;
+          return `${className}-enter-active`;
         } else {
-          return `${name}-enter`;
+          return `${className}-enter`;
         }
       }
     }
@@ -34,5 +35,5 @@ export const useTransitionClass = (name: string) => {
     setInitialLoad(true);
   }, []);
 
-  return style();
+  return [style(name), style(secondName || '')];
 };

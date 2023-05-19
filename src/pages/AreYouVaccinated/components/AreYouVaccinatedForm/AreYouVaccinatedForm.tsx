@@ -35,11 +35,14 @@ export const AreYouVaccinatedForm = () => {
       />
 
       <TextArea
-        name='covid_sickness_date'
-        register={register('covid_sickness_date', {
+        name='what_about_meetings_in_live'
+        register={register('what_about_meetings_in_live', {
           shouldUnregister: true,
           onChange: (event) =>
-            setAreYouVaccinatedData('covid_sickness_date', event.target.value),
+            setAreYouVaccinatedData(
+              'what_about_meetings_in_live',
+              event.target.value
+            ),
         })}
         title='რას ფიქრობ ფიზიკურ შეკრებებზე?'
       />
