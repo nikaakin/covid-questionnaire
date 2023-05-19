@@ -11,18 +11,17 @@ const {
 export const covidStateContext = createContext({
   data: {
     had_covid,
-    antibodies,
+    ...antibodies,
     had_antibody_test,
     covid_sickness_date,
   },
   setCovidStateData: (key: string, value: string) => {},
-  setAntibodies: (key: string, value: string) => {},
 });
 
 export const CovidStateProvider: FC<PropsWithChildren> = ({ children }) => {
-  const [data, setData] = useState<CovidStateType>({
+  const [data, setData] = useState({
     had_covid,
-    antibodies,
+    ...antibodies,
     had_antibody_test,
     covid_sickness_date,
   });
@@ -35,26 +34,11 @@ export const CovidStateProvider: FC<PropsWithChildren> = ({ children }) => {
     setData({ ...data, [key]: value });
   };
 
-  const setAntibodies = (key: string, value: string) => {
-    localStorage.setItem(
-      'covid-state',
-      JSON.stringify({
-        ...data,
-        antibodies: { ...data.antibodies, [key]: value },
-      })
-    );
-    setData({
-      ...data,
-      antibodies: { ...data.antibodies!, [key]: value },
-    });
-  };
-
   return (
     <covidStateContext.Provider
       value={{
         data,
         setCovidStateData,
-        setAntibodies,
       }}
     >
       {children}

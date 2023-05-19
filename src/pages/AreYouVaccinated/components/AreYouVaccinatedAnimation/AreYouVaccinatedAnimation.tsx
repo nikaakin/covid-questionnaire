@@ -1,6 +1,6 @@
 import { useTransitionClass } from '@/hooks';
 
-export const AreYouVaccinateAnimation = () => {
+export const AreYouVaccinatedAnimation = () => {
   const className = useTransitionClass();
   return (
     <div className='basis-[60%] relative '>

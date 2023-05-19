@@ -1,4 +1,3 @@
-import { PersonalInfoDataType } from './type';
 import { PersonalInfoType, getLocaleStorageValues } from '@/helpers';
 import { FC, PropsWithChildren, createContext, useState } from 'react';
 
@@ -24,7 +23,7 @@ export const PersonalInfoContextProvider: FC<PropsWithChildren> = ({
     email: initialState.email,
   });
 
-  const setData = ({ first_name, last_name, email }: PersonalInfoDataType) => {
+  const setData = ({ first_name, last_name, email }: PersonalInfoType) => {
     setdata({ first_name, last_name, email });
     localStorage.setItem(
       'personal-info',

@@ -6,7 +6,6 @@ export const CovidStateForm = () => {
     dateRegisterArguments,
     errors,
     register,
-    setAntibodies,
     data,
     firstAdditionalInput,
     secondAdditionalInput,
@@ -55,7 +54,7 @@ export const CovidStateForm = () => {
       {firstAdditionalInput && thirdAdditionalInput && (
         <>
           <Input
-            value={data.antibodies?.number || ''}
+            value={data.number || ''}
             register={register('number', {
               shouldUnregister: true,
               validate: (value: string) => {
@@ -63,7 +62,8 @@ export const CovidStateForm = () => {
                   return 'რიცხვით უნდა იყოს';
                 return true;
               },
-              onChange: (event) => setAntibodies('number', event.target.value),
+              onChange: (event) =>
+                setCovidStateData('number', event.target.value),
             })}
             errors={errors}
             name='number'
@@ -71,8 +71,8 @@ export const CovidStateForm = () => {
             placeholder='რიცხვი'
           />
           <Input
-            value={data.antibodies?.test_date || ''}
-            register={register('test_data', {
+            value={data.test_date || ''}
+            register={register('test_date', {
               shouldUnregister: true,
               validate: (value: string) => {
                 if (value !== '' && !Number.isInteger(+value))
@@ -80,10 +80,10 @@ export const CovidStateForm = () => {
                 return true;
               },
               onChange: (event) =>
-                setAntibodies('test_data', event.target.value),
+                setCovidStateData('test_date', event.target.value),
             })}
             errors={errors}
-            name='test_data'
+            name='test_date'
             placeholder='ანტისხეულების რაოდენობა'
           />
         </>

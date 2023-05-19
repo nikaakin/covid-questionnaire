@@ -4,8 +4,7 @@ import { useContext } from 'react';
 import { useFormContext, useWatch } from 'react-hook-form';
 
 export const useCovidStateForm = () => {
-  const { data, setCovidStateData, setAntibodies } =
-    useContext(covidStateContext);
+  const { data, setCovidStateData } = useContext(covidStateContext);
 
   const {
     register,
@@ -45,7 +44,6 @@ export const useCovidStateForm = () => {
     dateRegisterArguments,
     register,
     errors,
-    setAntibodies,
     data,
     setCovidStateData,
   };
