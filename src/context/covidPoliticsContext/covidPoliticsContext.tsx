@@ -10,7 +10,7 @@ export const covidPoliticsContext = createContext({
     vaccination_stage,
     i_am_waiting,
   },
-  setCovidPoliticsData: (key: string, value: string) => {},
+  setCovidPoliticsData: (_: string, __: string) => {},
 });
 
 export const CovidPoliticsProvider: FC<PropsWithChildren> = ({ children }) => {

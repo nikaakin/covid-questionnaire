@@ -1,10 +1,8 @@
-import { routes } from '@/config';
 import { pageContext } from '@/context';
 import { useContext, useEffect, useState } from 'react';
 
 export const useTransitionClass = (name: string) => {
-  const { forwardAnimation, show, setShowValue, page } =
-    useContext(pageContext);
+  const { forwardAnimation, show, setShowValue } = useContext(pageContext);
   const [initialLoad, setInitialLoad] = useState(false);
 
   const style = () => {

@@ -15,7 +15,7 @@ export const areYouVaccinatedContext = createContext({
     tell_us_your_opinion_about_us,
     what_about_meetings_in_live,
   },
-  setAreYouVaccinatedData: (key: string, value: string) => {},
+  setAreYouVaccinatedData: (_: string, __: string) => {},
 });
 
 export const AreYouVaccinatedProvider: FC<PropsWithChildren> = ({

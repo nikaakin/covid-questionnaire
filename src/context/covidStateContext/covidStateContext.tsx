@@ -15,7 +15,7 @@ export const covidStateContext = createContext({
     had_antibody_test,
     covid_sickness_date,
   },
-  setCovidStateData: (key: string, value: string) => {},
+  setCovidStateData: (_: string, __: string) => {},
 });
 
 export const CovidStateProvider: FC<PropsWithChildren> = ({ children }) => {
