@@ -3,4 +3,5 @@ export const routes = [
   'covid-state',
   'covid-politics',
   'are-you-vaccinated',
+  'thank-you',
 ];

@@ -1,7 +1,7 @@
 import { useTransitionClass } from '@/hooks';
 
 export const CovidStateAnimation = () => {
-  const className = useTransitionClass();
+  const className = useTransitionClass('covid-state');
   return (
     <div className='basis-[60%] relative '>
       <img
