@@ -5,7 +5,7 @@ export const AreYouVaccinatedForm = () => {
   const { register, setAreYouVaccinatedData, submit } = useAreYouVaccinated();
 
   return (
-    <div className='text-neutral-850 pt-10 flex-1'>
+    <div className='text-neutral-850 pt-10 flex-1 '>
       <RadioButton
         setOnChange={setAreYouVaccinatedData}
         name='non_formal_meetings'

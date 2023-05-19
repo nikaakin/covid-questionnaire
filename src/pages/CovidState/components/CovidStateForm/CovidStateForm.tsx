@@ -40,7 +40,7 @@ export const CovidStateForm = () => {
         />
       )}
 
-      {firstAdditionalInput && secondAdditionalInput && (
+      {firstAdditionalInput && thirdAdditionalInput && (
         <Input
           placeholder='დდ/თთ/წწ'
           value={data.covid_sickness_date || ''}
@@ -51,7 +51,7 @@ export const CovidStateForm = () => {
         />
       )}
 
-      {firstAdditionalInput && thirdAdditionalInput && (
+      {firstAdditionalInput && secondAdditionalInput && (
         <>
           <Input
             value={data.number || ''}

@@ -31,6 +31,10 @@
   transition: all 300ms ease-in-out 900ms;
 }
 
+.letter-spacing {
+  letter-spacing: 0.24em;
+}
+
 [type='radio'] {
   appearance: none;
   -webkit-appearance: none;
@@ -156,7 +160,37 @@
 .are-you-vaccinated-exit-active {
   transform-origin: top left;
 
+  opacity: 0.3;
+  transform: translate(-1200px, -500px) scale(12);
+  transition: all 200ms ease-in-out;
+  background-color: #232323;
+}
+
+.thank-you-enter {
+  top: 30%;
+  left: 40%;
   opacity: 0;
-  transform: translate(-60%, 30%) scale(0);
+  transition: all 300ms ease-in-out;
+}
+.thank-you-enter-active {
+  opacity: 1;
+  transition: all 300ms ease-in-out 200ms;
+}
+
+.thank-you-exit-active {
+  transition: all 200ms ease-in-out;
+}
+.thank-you-another-enter {
+  bottom: 20%;
+  right: 30%;
+  opacity: 0;
+  transition: all 300ms ease-in-out;
+}
+.thank-you-another-enter-active {
+  opacity: 1;
+  transition: all 300ms ease-in-out 200ms;
+}
+
+.thank-you-another-exit-active {
   transition: all 200ms ease-in-out;
 }

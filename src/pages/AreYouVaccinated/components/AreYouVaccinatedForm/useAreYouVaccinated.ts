@@ -30,20 +30,27 @@ export const useAreYouVaccinated = () => {
       let covidState: any = { had_covid: covidStateData.had_covid };
       if (covidStateData.had_covid === 'yes') {
         if (covidStateData.had_antibody_test === 'false') {
+          const dateSplit = covidStateData.covid_sickness_date!.split('/');
+          const date = new Date(
+            +dateSplit[2] + 2000,
+            +dateSplit[1] - 1,
+            +dateSplit[0]
+          );
           covidState = {
             ...covidState,
             had_antibody_test: false,
-            covid_sickness_date: covidStateData.covid_sickness_date,
+            covid_sickness_date: date,
+          };
+        } else {
+          covidState = {
+            ...covidState,
+            had_antibody_test: true,
+            antibodies: {
+              number: +covidStateData.number!,
+              test_date: new Date(covidStateData.test_date!),
+            },
           };
         }
-        covidState = {
-          ...covidState,
-          had_antibody_test: true,
-          antibodies: {
-            number: +covidStateData.number!,
-            test_date: covidStateData.test_date,
-          },
-        };
       }
 
       let covidPolitics: any = {
@@ -68,13 +75,6 @@ export const useAreYouVaccinated = () => {
         ...covidPolitics,
         ...areYouVaccinatedData,
       };
-
-      const formData = new FormData();
-
-      Object.keys(all).forEach((key) => {
-        formData.append(key, all[key]);
-      });
-
       fetch('https://covid19.devtest.ge/api/create', {
         method: 'POST',
         body: JSON.stringify(all),

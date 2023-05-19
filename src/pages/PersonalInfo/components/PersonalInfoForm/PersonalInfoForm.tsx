@@ -10,8 +10,8 @@ export const PersonalInfoForm = () => {
         register={register('first_name', {
           required: 'სახელის ველის შევსება სავალდებულოა',
           minLength: {
-            value: 2,
-            message: 'სახელის ველი უნდა შედგებოდეს მინიმუმ 2 სიმბოლოსგან',
+            value: 3,
+            message: 'სახელის ველი უნდა შედგებოდეს მინიმუმ 3 სიმბოლოსგან',
           },
           onChange(event) {
             setData({ ...data, first_name: event.target.value });
@@ -26,8 +26,8 @@ export const PersonalInfoForm = () => {
         register={register('last_name', {
           required: 'გვარის ველის შევსება სავალდებულოა',
           minLength: {
-            value: 2,
-            message: 'გვარის ველი უნდა შედგებოდეს მინიმუმ 2 სიმბოლოსგან',
+            value: 3,
+            message: 'გვარის ველი უნდა შედგებოდეს მინიმუმ 3 სიმბოლოსგან',
           },
           onChange(event) {
             setData({ ...data, last_name: event.target.value });
