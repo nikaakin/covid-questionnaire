@@ -54,27 +54,15 @@ export const CovidStateForm = () => {
       {antibodies && (
         <>
           <Input
-            register={register('number', {
-              shouldUnregister: true,
-              validate: (value: string) => {
-                if (value !== '' && !Number.isInteger(+value))
-                  return 'რიცხვით უნდა იყოს';
-                return true;
-              },
-              onChange: (event) =>
-                setCovidStateData('number', event.target.value),
-            })}
-            errors={errors}
-            name='number'
-            title='თუ გახსოვს, გთხოვ მიუთითე ტესტის მიახლოებითი რიცხვი და ანტისხეულების რაოდენობა*'
-            placeholder='რიცხვი'
-          />
-          <Input
             register={register('test_date', {
               shouldUnregister: true,
               validate: (value: string) => {
-                if (value !== '' && !Number.isInteger(+value))
-                  return 'რიცხვით უნდა იყოს';
+                if (
+                  !Number.isInteger(+value) ||
+                  value.includes('.') ||
+                  +value > 31
+                )
+                  return 'რიცხვი უნდა იყოს';
                 return true;
               },
               onChange: (event) =>
@@ -82,6 +70,22 @@ export const CovidStateForm = () => {
             })}
             errors={errors}
             name='test_date'
+            title='თუ გახსოვს, გთხოვ მიუთითე ტესტის მიახლოებითი რიცხვი და ანტისხეულების რაოდენობა*'
+            placeholder='რიცხვი'
+          />
+          <Input
+            register={register('number', {
+              shouldUnregister: true,
+              validate: (value: string) => {
+                if (value !== '' && !Number.isInteger(+value))
+                  return 'რიცხვი უნდა იყოს';
+                return true;
+              },
+              onChange: (event) =>
+                setCovidStateData('number', event.target.value),
+            })}
+            errors={errors}
+            name='number'
             placeholder='ანტისხეულების რაოდენობა'
           />
         </>
