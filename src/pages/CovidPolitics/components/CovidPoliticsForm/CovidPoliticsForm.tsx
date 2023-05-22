@@ -3,11 +3,11 @@ import { useCovidPoliticsForm } from './useCovidPoliticsForm';
 
 export const CovidPoliticsForm = () => {
   const {
-    firstAdditionalInput,
-    secondAdditionalInput,
-    thirdAdditionalInput,
-    fourthAdditionalInput,
-    fifthAdditionalInput,
+    dontPostponeLink,
+    hadAndPlanningLink,
+    iAmWaiting,
+    notPlanningLink,
+    vaccinationStage,
     setCovidPoliticsData,
   } = useCovidPoliticsForm();
 
@@ -26,7 +26,7 @@ export const CovidPoliticsForm = () => {
         setOnChange={setCovidPoliticsData}
         isRequired
       />
-      {firstAdditionalInput && (
+      {vaccinationStage && (
         <RadioButton
           name='vaccination_stage'
           title='გაქვს გადატანილი Covid-19?*'
@@ -45,7 +45,7 @@ export const CovidPoliticsForm = () => {
           isRequired
         />
       )}
-      {secondAdditionalInput && (
+      {iAmWaiting && (
         <RadioButton
           name='i_am_waiting'
           title='გაქვს გადატანილი Covid-19?*'
@@ -65,7 +65,7 @@ export const CovidPoliticsForm = () => {
         />
       )}
 
-      {firstAdditionalInput && thirdAdditionalInput && (
+      {dontPostponeLink && (
         <p className='text-xl pl-16'>
           რომ არ გადადო, ბარემ ახლავე დარეგისტრირდი
           <br />
@@ -74,14 +74,14 @@ export const CovidPoliticsForm = () => {
           </a>
         </p>
       )}
-      {secondAdditionalInput && fourthAdditionalInput && (
+      {hadAndPlanningLink && (
         <p className='text-xl pl-16'>
           <a href='https://booking.moh.gov.ge/' className='text-cyan-650'>
             👉 https://booking.moh.gov.ge/
           </a>
         </p>
       )}
-      {secondAdditionalInput && fifthAdditionalInput && (
+      {notPlanningLink && (
         <p className='text-xl pl-16'>
           ახალი პროტოკოლით კოვიდის გადატანიდან 1 თვის შემდეგ შეგიძლიათ ვაქცინის
           გაკეთება. <br /> <br /> 👉 რეგისტრაციის ბმული <br />

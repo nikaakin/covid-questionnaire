@@ -14,9 +14,10 @@ export const useCovidStateForm = () => {
   const watchAntibodiesTest = useWatch({
     name: ['had_covid', 'had_antibody_test'],
   });
-  const firstAdditionalInput = watchAntibodiesTest[0] === 'yes';
-  const secondAdditionalInput = watchAntibodiesTest[1] === 'true';
-  const thirdAdditionalInput = watchAntibodiesTest[1] === 'false';
+  const hadAntibodyTest = watchAntibodiesTest[0] === 'yes';
+  const antibodies = watchAntibodiesTest[1] === 'true' && hadAntibodyTest;
+  const covidSicknessDate =
+    watchAntibodiesTest[1] === 'false' && hadAntibodyTest;
 
   const dateRegisterArguments = {
     shouldUnregister: true,
@@ -38,9 +39,9 @@ export const useCovidStateForm = () => {
   };
 
   return {
-    firstAdditionalInput,
-    secondAdditionalInput,
-    thirdAdditionalInput,
+    hadAntibodyTest,
+    antibodies,
+    covidSicknessDate,
     dateRegisterArguments,
     register,
     errors,

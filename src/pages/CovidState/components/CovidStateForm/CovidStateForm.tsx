@@ -7,9 +7,9 @@ export const CovidStateForm = () => {
     errors,
     register,
     data,
-    firstAdditionalInput,
-    secondAdditionalInput,
-    thirdAdditionalInput,
+    antibodies,
+    covidSicknessDate,
+    hadAntibodyTest,
     setCovidStateData,
   } = useCovidStateForm();
 
@@ -27,7 +27,7 @@ export const CovidStateForm = () => {
         isRequired
       />
 
-      {firstAdditionalInput && (
+      {hadAntibodyTest && (
         <RadioButton
           setOnChange={setCovidStateData}
           name='had_antibody_test'
@@ -40,7 +40,7 @@ export const CovidStateForm = () => {
         />
       )}
 
-      {firstAdditionalInput && thirdAdditionalInput && (
+      {covidSicknessDate && (
         <Input
           placeholder='დდ/თთ/წწ'
           value={data.covid_sickness_date || ''}
@@ -51,7 +51,7 @@ export const CovidStateForm = () => {
         />
       )}
 
-      {firstAdditionalInput && secondAdditionalInput && (
+      {antibodies && (
         <>
           <Input
             register={register('number', {
