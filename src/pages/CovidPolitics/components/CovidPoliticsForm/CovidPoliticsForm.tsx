@@ -18,7 +18,7 @@ export const CovidPoliticsForm = () => {
     >
       <RadioButton
         name='had_vaccine'
-        title='გაქვს გადატანილი Covid-19?*'
+        title='უკვე აცრილი ხარ?*'
         values={[
           { ka: 'კი', en: 'true' },
           { ka: 'არა', en: 'false' },
@@ -29,7 +29,7 @@ export const CovidPoliticsForm = () => {
       {vaccinationStage && (
         <RadioButton
           name='vaccination_stage'
-          title='გაქვს გადატანილი Covid-19?*'
+          title='აირჩიე რა ეტაპზე ხარ*'
           values={[
             {
               ka: 'პირველი დოზა და დარეგისტრირებული ვარ მეორეზე',
@@ -48,7 +48,7 @@ export const CovidPoliticsForm = () => {
       {iAmWaiting && (
         <RadioButton
           name='i_am_waiting'
-          title='გაქვს გადატანილი Covid-19?*'
+          title='რას ელოდები?*'
           values={[
             {
               ka: 'დარეგისტრირებული ვარ და ველოდები რიცხვს',
