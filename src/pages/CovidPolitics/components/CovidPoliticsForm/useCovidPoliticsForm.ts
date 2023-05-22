@@ -1,9 +1,8 @@
-import { covidPoliticsContext } from '@/context';
-import { useContext } from 'react';
+import { useCovidPoliticsContext } from '@/context';
 import { useWatch } from 'react-hook-form';
 
 export const useCovidPoliticsForm = () => {
-  const { setCovidPoliticsData } = useContext(covidPoliticsContext);
+  const { setCovidPoliticsData } = useCovidPoliticsContext();
 
   const watchValues = useWatch({
     name: ['had_vaccine', 'vaccination_stage', 'i_am_waiting'],

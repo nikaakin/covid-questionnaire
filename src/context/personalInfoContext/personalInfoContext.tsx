@@ -1,5 +1,11 @@
 import { PersonalInfoType, getLocaleStorageValues } from '@/helpers';
-import { FC, PropsWithChildren, createContext, useState } from 'react';
+import {
+  FC,
+  PropsWithChildren,
+  createContext,
+  useContext,
+  useState,
+} from 'react';
 
 const initialState = getLocaleStorageValues(
   'personal-info'
@@ -37,3 +43,5 @@ export const PersonalInfoContextProvider: FC<PropsWithChildren> = ({
     </personalInfoContext.Provider>
   );
 };
+
+export const usePersonalInfoContext = () => useContext(personalInfoContext);

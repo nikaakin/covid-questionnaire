@@ -1,5 +1,11 @@
 import { CovidPoliticsType, getLocaleStorageValues } from '@/helpers';
-import { FC, PropsWithChildren, createContext, useState } from 'react';
+import {
+  FC,
+  PropsWithChildren,
+  createContext,
+  useContext,
+  useState,
+} from 'react';
 
 const { had_vaccine, vaccination_stage, i_am_waiting }: CovidPoliticsType =
   getLocaleStorageValues('covid-politics');
@@ -39,3 +45,5 @@ export const CovidPoliticsProvider: FC<PropsWithChildren> = ({ children }) => {
     </covidPoliticsContext.Provider>
   );
 };
+
+export const useCovidPoliticsContext = () => useContext(covidPoliticsContext);

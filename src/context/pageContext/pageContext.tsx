@@ -2,6 +2,7 @@ import {
   FC,
   PropsWithChildren,
   createContext,
+  useContext,
   useEffect,
   useState,
 } from 'react';
@@ -51,3 +52,5 @@ export const PageContext: FC<PropsWithChildren> = ({ children }) => {
     </pageContext.Provider>
   );
 };
+
+export const usePageContext = () => useContext(pageContext);

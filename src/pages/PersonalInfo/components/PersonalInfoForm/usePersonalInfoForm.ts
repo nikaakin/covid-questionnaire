@@ -1,9 +1,8 @@
-import { personalInfoContext } from '@/context/personalInfoContext';
-import { useContext } from 'react';
+import { usePersonalInfoContext } from '@/context';
 import { useFormContext } from 'react-hook-form';
 
 export const usePersonalInfoForm = () => {
-  const { setData, data } = useContext(personalInfoContext);
+  const { setData, data } = usePersonalInfoContext();
   const {
     register,
     formState: { errors },

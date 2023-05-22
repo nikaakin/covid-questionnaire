@@ -1,24 +1,22 @@
 import {
-  areYouVaccinatedContext,
-  covidPoliticsContext,
-  covidStateContext,
-  pageContext,
-  personalInfoContext,
+  useAreYouVaccinatedContext,
+  useCovidPoliticsContext,
+  useCovidStateContext,
+  usePageContext,
+  usePersonalInfoContext,
 } from '@/context';
 import { CovidPoliticsApiType, CovidStateApiType } from '@/helpers';
-import { useContext } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 
 export const useAreYouVaccinated = () => {
-  const { setShowValue, setForwardValue, setCurrentPage } =
-    useContext(pageContext);
-  const { setAreYouVaccinatedData, data: areYouVaccinatedData } = useContext(
-    areYouVaccinatedContext
-  );
-  const { data: personalInfoData } = useContext(personalInfoContext);
-  const { data: covidPoliticsData } = useContext(covidPoliticsContext);
-  const { data: covidStateData } = useContext(covidStateContext);
+  const { setShowValue, setForwardValue, setCurrentPage } = usePageContext();
+  const { setAreYouVaccinatedData, data: areYouVaccinatedData } =
+    useAreYouVaccinatedContext();
+  const { data: personalInfoData } = usePersonalInfoContext();
+  const { data: covidPoliticsData } = useCovidPoliticsContext();
+  const { data: covidStateData } = useCovidStateContext();
+  console.log(covidStateData);
 
   const navigate = useNavigate();
 
@@ -49,8 +47,8 @@ export const useAreYouVaccinated = () => {
             ...covidState,
             had_antibody_test: true,
             antibodies: {
-              number: +covidStateData.number!,
-              test_date: new Date(+covidStateData.test_date!),
+              number: +covidStateData.number! || 0,
+              test_date: new Date(+covidStateData.test_date!) || new Date(''),
             },
           };
         }
