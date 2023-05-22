@@ -34,7 +34,7 @@ export const useLayout = () => {
 
   useEffect(() => {
     if (routes.indexOf(location.pathname.slice(1)) > page) {
-      navigate('/');
+      navigate(`/${routes[page]}`);
     } else {
       setCurrentPage(routes.indexOf(location.pathname.slice(1)));
     }
