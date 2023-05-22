@@ -42,8 +42,11 @@ export const PersonalInfoForm = () => {
         register={register('email', {
           required: 'ელ.ფოსტის ველის შევსება სავალდებულოა',
           validate: (value: string) => {
-            if (!value.includes('@'))
+            const emailRegex =
+              /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
+            if (!emailRegex.test(value))
               return 'თქვენ მიერ შეყვანილი მეილი არასწორია';
+
             if (!value.endsWith('@redberry.ge'))
               return 'გთხოვთ დარეგისტრირდეთ Redberry-ს მეილით (youremail@redberry.ge)';
           },

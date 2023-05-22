@@ -1,23 +1,25 @@
 import { covidStateContext } from '@/context';
 import { changeDateValue } from '@/helpers';
-import { ChangeEvent, useContext } from 'react';
-import { useFormContext, useWatch } from 'react-hook-form';
+import { ChangeEvent, useContext, useEffect } from 'react';
+import { useFormContext } from 'react-hook-form';
 
 export const useCovidStateForm = () => {
   const { data, setCovidStateData } = useContext(covidStateContext);
 
   const {
     register,
+    trigger,
     formState: { errors },
   } = useFormContext();
 
-  const watchAntibodiesTest = useWatch({
-    name: ['had_covid', 'had_antibody_test'],
-  });
-  const hadAntibodyTest = watchAntibodiesTest[0] === 'yes';
-  const antibodies = watchAntibodiesTest[1] === 'true' && hadAntibodyTest;
+  const hadAntibodyTest = data.had_covid === 'yes';
+  const antibodies = data.had_antibody_test === 'true' && hadAntibodyTest;
   const covidSicknessDate =
-    watchAntibodiesTest[1] === 'false' && hadAntibodyTest;
+    data.had_antibody_test === 'false' && hadAntibodyTest;
+
+  useEffect(() => {
+    trigger('had_antibody_test');
+  }, [hadAntibodyTest, trigger]);
 
   const dateRegisterArguments = {
     shouldUnregister: true,

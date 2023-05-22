@@ -35,13 +35,24 @@ export const useLayout = () => {
   useEffect(() => {
     if (routes.indexOf(location.pathname.slice(1)) > page) {
       navigate('/');
+    } else {
+      setCurrentPage(routes.indexOf(location.pathname.slice(1)));
     }
     const defaultValues = getLocaleStorageValues(name);
 
     for (const key in defaultValues) {
       setValue(key, defaultValues[key]);
+      trigger(key);
     }
-  }, [location.pathname, navigate, page, name, setValue, trigger]);
+  }, [
+    location.pathname,
+    navigate,
+    page,
+    name,
+    setValue,
+    trigger,
+    setCurrentPage,
+  ]);
 
   const previousPage = () => {
     setShowValue(false);

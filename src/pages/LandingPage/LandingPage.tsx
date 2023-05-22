@@ -17,7 +17,7 @@ export const LandingPage = () => {
   } = useLandingPage();
 
   return (
-    <div className='w-screen h-screen bg-gray-250'>
+    <div className='w-screen h-screen bg-gray-250 overflow-hidden'>
       <CSSTransition
         nodeRef={backgroundRef}
         in={showBg}
