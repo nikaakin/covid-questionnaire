@@ -11,9 +11,9 @@ export const Layout: React.FC = () => {
     <FormProvider {...form}>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className='pt-20 px-48 pb-32 min-w-min min-h-screen bg-gray-250 text-neutral-850 relative w-full font-helvetica-neue'
+        className=' px-48 pb-32 min-w-min min-h-screen bg-gray-250 text-neutral-850 relative w-full font-helvetica-neue '
       >
-        <header className='flex  justify-between text-4xl font-bold pb-6 border-b-[1.8px] border-neutral-850 items-center font-anonymous-pro'>
+        <header className='flex fixed pt-20 w-[80%] z-10 bg-gray-250 justify-between text-4xl font-bold pb-6 border-b-[1.8px] border-neutral-850 items-center font-anonymous-pro'>
           <Link to='/'>
             <img
               src='/assets/icons/redberry.png'
@@ -24,7 +24,7 @@ export const Layout: React.FC = () => {
           <span>{page + 1}/4</span>
         </header>
 
-        <section className='flex-1  flex flex-row  justify-between gap-32'>
+        <section className='flex-1  flex flex-row  justify-between gap-32 pt-32'>
           <Outlet />
         </section>
 

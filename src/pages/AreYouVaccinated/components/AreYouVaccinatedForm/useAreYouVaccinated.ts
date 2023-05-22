@@ -16,7 +16,6 @@ export const useAreYouVaccinated = () => {
   const { data: personalInfoData } = usePersonalInfoContext();
   const { data: covidPoliticsData } = useCovidPoliticsContext();
   const { data: covidStateData } = useCovidStateContext();
-  console.log(covidStateData);
 
   const navigate = useNavigate();
 
