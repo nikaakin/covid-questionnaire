@@ -1,5 +1,11 @@
 import { AreYouVaccinatedType, getLocaleStorageValues } from '@/helpers';
-import { FC, PropsWithChildren, createContext, useState } from 'react';
+import {
+  FC,
+  PropsWithChildren,
+  createContext,
+  useContext,
+  useState,
+} from 'react';
 
 const {
   non_formal_meetings,
@@ -47,3 +53,6 @@ export const AreYouVaccinatedProvider: FC<PropsWithChildren> = ({
     </areYouVaccinatedContext.Provider>
   );
 };
+
+export const useAreYouVaccinatedContext = () =>
+  useContext(areYouVaccinatedContext);

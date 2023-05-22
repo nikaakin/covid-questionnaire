@@ -1,13 +1,13 @@
 import { routes } from '@/config';
-import { pageContext } from '@/context';
+import { usePageContext } from '@/context';
 import { FormType, getLocaleStorageValues } from '@/helpers';
-import { useContext, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 export const useLayout = () => {
   const { page, setCurrentPage, show, setShowValue, setForwardValue } =
-    useContext(pageContext);
+    usePageContext();
   const navigate = useNavigate();
   const location = useLocation();
   const name = routes[page];
@@ -34,7 +34,7 @@ export const useLayout = () => {
 
   useEffect(() => {
     if (routes.indexOf(location.pathname.slice(1)) > page) {
-      navigate('/');
+      navigate(`/${routes[page]}`);
     } else {
       setCurrentPage(routes.indexOf(location.pathname.slice(1)));
     }

@@ -1,8 +1,8 @@
-import { pageContext } from '@/context';
-import { useContext, useEffect, useState } from 'react';
+import { usePageContext } from '@/context';
+import { useEffect, useState } from 'react';
 
 export const useTransitionClass = (name: string, secondName?: string) => {
-  const { forwardAnimation, show, setShowValue } = useContext(pageContext);
+  const { forwardAnimation, show, setShowValue } = usePageContext();
   const [initialLoad, setInitialLoad] = useState(false);
 
   const style = (className: string) => {

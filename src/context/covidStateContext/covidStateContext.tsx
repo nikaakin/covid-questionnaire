@@ -1,8 +1,15 @@
 import { CovidStateType, getLocaleStorageValues } from '@/helpers';
-import { FC, PropsWithChildren, createContext, useState } from 'react';
+import {
+  FC,
+  PropsWithChildren,
+  createContext,
+  useContext,
+  useState,
+} from 'react';
 
 const {
-  antibodies,
+  test_date,
+  number,
   covid_sickness_date,
   had_antibody_test,
   had_covid,
@@ -11,7 +18,8 @@ const {
 export const covidStateContext = createContext({
   data: {
     had_covid,
-    ...antibodies,
+    test_date,
+    number,
     had_antibody_test,
     covid_sickness_date,
   },
@@ -21,7 +29,8 @@ export const covidStateContext = createContext({
 export const CovidStateProvider: FC<PropsWithChildren> = ({ children }) => {
   const [data, setData] = useState({
     had_covid,
-    ...antibodies,
+    number,
+    test_date,
     had_antibody_test,
     covid_sickness_date,
   });
@@ -45,3 +54,5 @@ export const CovidStateProvider: FC<PropsWithChildren> = ({ children }) => {
     </covidStateContext.Provider>
   );
 };
+
+export const useCovidStateContext = () => useContext(covidStateContext);

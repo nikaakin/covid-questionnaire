@@ -1,5 +1,5 @@
-import { pageContext } from '@/context';
-import { useContext, useEffect, useRef, useState } from 'react';
+import { usePageContext } from '@/context';
+import { useEffect, useRef, useState } from 'react';
 
 export const useLandingPage = () => {
   const backgroundRef = useRef(null);
@@ -8,7 +8,7 @@ export const useLandingPage = () => {
   const [showBg, setShowBg] = useState(false);
   const [showLogo, setShowLogo] = useState(false);
   const [text, setText] = useState(false);
-  const { setCurrentPage } = useContext(pageContext);
+  const { setCurrentPage } = usePageContext();
 
   useEffect(() => {
     setShowBg(true);

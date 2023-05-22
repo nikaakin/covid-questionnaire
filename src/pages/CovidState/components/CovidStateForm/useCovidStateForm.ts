@@ -1,10 +1,10 @@
-import { covidStateContext } from '@/context';
+import { useCovidStateContext } from '@/context';
 import { changeDateValue } from '@/helpers';
-import { ChangeEvent, useContext, useEffect } from 'react';
+import { ChangeEvent, useEffect } from 'react';
 import { useFormContext } from 'react-hook-form';
 
 export const useCovidStateForm = () => {
-  const { data, setCovidStateData } = useContext(covidStateContext);
+  const { data, setCovidStateData } = useCovidStateContext();
 
   const {
     register,
