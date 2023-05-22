@@ -18,8 +18,8 @@ export const useCovidStateForm = () => {
     data.had_antibody_test === 'false' && hadAntibodyTest;
 
   useEffect(() => {
-    trigger('had_antibody_test');
-  }, [hadAntibodyTest, trigger]);
+    trigger();
+  }, [trigger]);
 
   const dateRegisterArguments = (
     valueInContext: string,
