@@ -28,6 +28,11 @@ export const useCovidStateForm = () => {
       if (value.match(/[a-z]/gi) !== null) {
         return 'თარიღი არასწორია';
       }
+
+      const split = value.split('/');
+      const date = new Date(`20${split[2]}-${split[1]}-${split[0]}`).getTime();
+      if (isNaN(date)) return 'თარიღი არასწორია';
+
       if (value.length < 8) return 'თარიღი არასწორია';
       return true;
     },
