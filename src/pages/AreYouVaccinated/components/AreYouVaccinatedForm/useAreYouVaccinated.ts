@@ -48,7 +48,7 @@ export const useAreYouVaccinated = () => {
             had_antibody_test: true,
             antibodies: {
               number: +covidStateData.number! || 0,
-              test_date: new Date(+covidStateData.test_date!) || new Date(''),
+              test_date: new Date(+covidStateData.test_date!) || new Date(),
             },
           };
         }

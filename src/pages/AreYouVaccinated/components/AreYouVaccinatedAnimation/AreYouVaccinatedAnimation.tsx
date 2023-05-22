@@ -3,8 +3,8 @@ import { useTransitionClass } from '@/hooks';
 export const AreYouVaccinatedAnimation = () => {
   const [className] = useTransitionClass('are-you-vaccinated');
   return (
-    <div className='relative basis-[60%]'>
-      <div className=' fixed '>
+    <div className='relative basis-[60%] flex justify-center'>
+      <div className=' fixed mt-10'>
         <img
           src='/assets/icons/bike.png'
           alt='scan'
