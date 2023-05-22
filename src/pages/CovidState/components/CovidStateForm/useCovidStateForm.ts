@@ -21,10 +21,16 @@ export const useCovidStateForm = () => {
     trigger('had_antibody_test');
   }, [hadAntibodyTest, trigger]);
 
-  const dateRegisterArguments = {
+  const dateRegisterArguments = (
+    valueInContext: string,
+    key: string,
+    required: boolean
+  ) => ({
     shouldUnregister: true,
-    required: 'სავალდებულოა ველის შევსება',
+    required: required ? 'სავალდებულოა ველის შევსება' : undefined,
     validate: (value: string) => {
+      if (!required && value === '') return true;
+
       if (value.match(/[a-z]/gi) !== null) {
         return 'თარიღი არასწორია';
       }
@@ -40,10 +46,11 @@ export const useCovidStateForm = () => {
       changeDateValue(
         event.target.value,
         setCovidStateData,
-        data.covid_sickness_date || ''
+        valueInContext || '',
+        key
       );
     },
-  };
+  });
 
   return {
     hadAntibodyTest,

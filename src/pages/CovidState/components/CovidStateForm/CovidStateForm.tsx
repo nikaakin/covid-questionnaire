@@ -47,27 +47,25 @@ export const CovidStateForm = () => {
           errors={errors}
           name='covid_sickness_date'
           title='მიუთითე მიახლოებითი პერიოდი (დღე/თვე/წელი) როდის გქონდა Covid-19*'
-          register={register('covid_sickness_date', dateRegisterArguments)}
+          register={register(
+            'covid_sickness_date',
+            dateRegisterArguments(
+              data.covid_sickness_date || '',
+              'covid_sickness_date',
+              true
+            )
+          )}
         />
       )}
 
       {antibodies && (
         <>
           <Input
-            register={register('test_date', {
-              shouldUnregister: true,
-              validate: (value: string) => {
-                if (
-                  !Number.isInteger(+value) ||
-                  value.includes('.') ||
-                  +value > 31
-                )
-                  return 'რიცხვი უნდა იყოს';
-                return true;
-              },
-              onChange: (event) =>
-                setCovidStateData('test_date', event.target.value),
-            })}
+            value={data.test_date || ''}
+            register={register(
+              'test_date',
+              dateRegisterArguments(data.test_date || '', 'test_date', false)
+            )}
             errors={errors}
             name='test_date'
             title='თუ გახსოვს, გთხოვ მიუთითე ტესტის მიახლოებითი რიცხვი და ანტისხეულების რაოდენობა*'

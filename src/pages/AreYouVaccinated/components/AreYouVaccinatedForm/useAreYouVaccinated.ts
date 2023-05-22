@@ -42,12 +42,18 @@ export const useAreYouVaccinated = () => {
             covid_sickness_date: date,
           };
         } else {
+          const dateSplit = covidStateData.test_date!.split('/');
+          const date = new Date(
+            +dateSplit[2] + 2000,
+            +dateSplit[1] - 1,
+            +dateSplit[0]
+          );
           covidState = {
             ...covidState,
             had_antibody_test: true,
             antibodies: {
               number: +covidStateData.number! || 0,
-              test_date: new Date(+covidStateData.test_date!) || new Date(),
+              test_date: date || new Date(),
             },
           };
         }
