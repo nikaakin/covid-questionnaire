@@ -9,6 +9,10 @@ export const PersonalInfoForm = () => {
         placeholder='სახელი'
         register={register('first_name', {
           required: 'სახელის ველის შევსება სავალდებულოა',
+          pattern: {
+            value: /^[a-zA-Zა-ჰ]+$/,
+            message: 'სახელი უნდა შეიცავდეს მხოლოდ ასოებს',
+          },
           minLength: {
             value: 3,
             message: 'სახელის ველი უნდა შედგებოდეს მინიმუმ 3 სიმბოლოსგან',
@@ -25,6 +29,10 @@ export const PersonalInfoForm = () => {
         placeholder='გვარი'
         register={register('last_name', {
           required: 'გვარის ველის შევსება სავალდებულოა',
+          pattern: {
+            value: /^[a-zA-Zა-ჰ]+$/,
+            message: 'სახელი უნდა შეიცავდეს მხოლოდ ასოებს',
+          },
           minLength: {
             value: 3,
             message: 'გვარის ველი უნდა შედგებოდეს მინიმუმ 3 სიმბოლოსგან',
