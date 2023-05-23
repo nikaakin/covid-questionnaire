@@ -13,7 +13,7 @@ export const PersonalInfoAnimation = () => {
       <img
         src='/assets/icons/rect.png'
         alt='Landing scan'
-        className={`block bg-cover  absolute top-64 left-1/2 z-0  w-[800px] -translate-x-1/2 ${className}`}
+        className={`block bg-cover  absolute top-[22%] left-1/2 z-0 -translate-x-1/2 ${className}`}
       />
     </div>
   );

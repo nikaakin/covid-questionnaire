@@ -13,7 +13,7 @@ export const CovidStateAnimation = () => {
       <img
         src='/assets/icons/circle.png'
         alt='Landing scan'
-        className={`block bg-cover  absolute top-80 left-36 z-0  w-60 h-60 ${className}`}
+        className={`block bg-cover  absolute top-[28%] left-[8%] z-0   ${className}`}
       />
     </div>
   );

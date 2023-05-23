@@ -17,11 +17,11 @@ export const LandingPage = () => {
   } = useLandingPage();
 
   return (
-    <div className='w-screen h-screen bg-gray-250 overflow-hidden'>
+    <div className='w-screen h-screen bg-gray-250 overflow-hidden relative'>
       <CSSTransition
         nodeRef={backgroundRef}
         in={showBg}
-        timeout={500}
+        timeout={800}
         classNames='background'
         unmountOnExit
         mountOnEnter
@@ -32,14 +32,14 @@ export const LandingPage = () => {
           ref={backgroundRef}
           src='/assets/icons/landing-bg.png'
           alt='Landing background'
-          className='bg-cover w-screen h-screen  hidden '
+          className='bg-cover absolute scale-150 hidden '
         />
       </CSSTransition>
 
       <CSSTransition
         nodeRef={logoRef}
         in={showLogo}
-        timeout={500}
+        timeout={1200}
         classNames='logo'
         unmountOnExit
         mountOnEnter

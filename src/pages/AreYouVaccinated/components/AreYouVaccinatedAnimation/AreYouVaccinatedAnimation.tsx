@@ -14,7 +14,7 @@ export const AreYouVaccinatedAnimation = () => {
         <img
           src='/assets/icons/heart.png'
           alt='Landing scan'
-          className={`block bg-cover  absolute top-14 left-44 z-0 ${className}  `}
+          className={`block bg-cover  absolute top-[10%] left-[27%] z-0 ${className}  `}
         />
       </div>
     </div>
