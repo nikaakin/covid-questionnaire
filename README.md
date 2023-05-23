@@ -22,6 +22,7 @@ Covid Questionaire - multi page form application with dynamic animations.
 ### Prerequisites
 
 - *npm@9.5 and up*
+- _nodejs@16 and up_
 
 #
 
@@ -49,7 +50,7 @@ Covid Questionaire - multi page form application with dynamic animations.
 git clone git@github.com:RedberryInternship/nika-cuckiridze-covid-questioanre.git
 ```
 
-2\. after you have installed all the PHP dependencies, it's time to install all the JS dependencies:
+2\. Install dependencies
 
 ```sh
 npm install
@@ -68,6 +69,10 @@ For running application locally use:
 ### Project Structure
 
 ```bash
+├─── public
+|    |... assets
+|    |    ├─── font
+|    |    ├─── icons
 ├─── src
 │   |... components
 |   |    ├─── Icons
