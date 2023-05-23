@@ -72,13 +72,9 @@ export const CovidStateForm = () => {
             placeholder='რიცხვი'
           />
           <Input
+            type='number'
             register={register('number', {
               shouldUnregister: true,
-              validate: (value: string) => {
-                if (value !== '' && !Number.isInteger(+value))
-                  return 'რიცხვი უნდა იყოს';
-                return true;
-              },
               onChange: (event) =>
                 setCovidStateData('number', event.target.value),
             })}
