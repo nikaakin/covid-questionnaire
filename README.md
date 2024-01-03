@@ -8,6 +8,10 @@ Covid Questionaire - multi page form application with dynamic animations.
 
 #
 
+## Visit: 
+
+https://covid-questionnaire-nikaakin.vercel.app/
+
 ### Table of Contents
 
 - [Prerequisites](#prerequisites)
